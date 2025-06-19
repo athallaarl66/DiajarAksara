@@ -19,8 +19,128 @@
   }
 }
 
-body {
+/* body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* styles/globals.css */
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  height: 71.19px;
+  background-color: #0a0a0a9a;
+}
+
+/* Navigation menu for desktop */
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 30px; /* Adjust spacing between nav items */
+}
+
+nav ul li:first-child {
+  margin-left: 0; /* Remove left margin for the first item */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 40px; /* Matches the height of the logo */
+}
+
+/* footer */
+
+.footer {
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: montserrat;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logoSection {
+  flex: 1;
+  min-width: 200px;
+}
+
+.logoSection h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.logoSection p {
+  font-size: 24px;
+  font-family: "Sundanese Unicode", sans-serif;
+}
+
+.linkSection {
+  display: flex;
+  gap: 40px;
+  flex: 2;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  min-width: 200px;
+}
+
+.linkSection div h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.linkSection div p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footerBottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 13px;
+  color: #999;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #333;
+  margin-top: 40px;
+}
+
+.logoSection {
+  width: 150px;
+  height: 60px;
+  background-image: url("../public/image/logo-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
 }

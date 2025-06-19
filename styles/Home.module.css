@@ -1,0 +1,246 @@
+/* styles/Home.module.css */
+
+/* bagian header  */
+
+header.scrolled {
+  background-color: rgba(0, 0, 0, 0.753); /* Dark background when scrolled */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow on scroll */
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+header .logo {
+  display: flex;
+  align-items: left;
+  margin-right: 70px;
+  margin-bottom: 8px;
+}
+
+header .logo img {
+  height: 60px; /* Menurunkan ukuran logo */
+  width: auto; /* Memastikan proporsi gambar tetap */
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background-image: url("../public/image/BANDUNG.jpg"); /* Gambar latar belakang */
+  background-size: cover;
+  background-position: center;
+  height: 507px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  z-index: 2;
+}
+
+.heroDesc {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* Section */
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.sectionReverse {
+  flex-direction: row-reverse;
+}
+
+.textSection {
+  width: 50%;
+  padding: 20px;
+}
+
+/* Latihan Section - Customized */
+.sectionLatihan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.textSectionLatihan {
+  width: 50%;
+  padding: 20px;
+}
+
+.textSectionLatihan h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.textSectionLatihan p {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/*  */
+
+.textSection h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.textSection p {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.imageAksara {
+  width: 400px;
+  height: 300px;
+  background-image: url("../public/image/LOGOA.png"); /* Ganti dengan path gambar yang sesuai */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.imageLatihan {
+  width: 400px;
+  height: 300px;
+  background-image: url("../public/image/LatihanHome.png"); /* Ganti dengan path gambar yang sesuai */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.imagePembelajaran {
+  width: 400px;
+  height: 300px;
+  background-image: url("../public/image/papantulis.png"); /* Ganti dengan path gambar yang sesuai */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+/* Features Section */
+.features {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.featureGrid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.featureItem {
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.featureItem h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #333;
+}
+
+.featureItem p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* gambar icon */
+.iconMembaca {
+  width: 100px;
+  height: 100px;
+  background-image: url("../public/image/membaca.png"); /* Path ke folder public/images */
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 0 auto; /* Posisikan horizontal tengah */
+}
+
+.iconMenulis {
+  width: 100px;
+  height: 100px;
+  background-image: url("../public/image/menulis.png");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 0 auto; /* Posisikan horizontal tengah */
+}
+
+.iconLatihan {
+  width: 100px;
+  height: 100px;
+  background-image: url("../public/image/latihan.png");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 0 auto; /* Posisikan horizontal tengah */
+}
+
+.iconMembaca,
+.iconMenulis,
+.iconLatihan {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.iconMembaca:hover,
+.iconMenulis:hover,
+.iconLatihan:hover {
+  transform: scale(1.05);
+}
+
+/* buat hp */
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .sectionReverse {
+    flex-direction: column-reverse;
+  }
+
+  .textSection {
+    width: 100%;
+  }
+
+  .featureGrid {
+    flex-direction: column;
+  }
+
+  .featureItem {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}

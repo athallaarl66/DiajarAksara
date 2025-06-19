@@ -1,0 +1,201 @@
+/* MembacaAksara.module.css */
+/* General body styling to prevent horizontal scroll and white space */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  height: 100%;
+  width: 100%;
+}
+
+/* header */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-x: hidden; /* Prevent horizontal scrolling within the page container */
+}
+
+.mainSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+  font-family: Montserrat;
+}
+
+.imageSection {
+  width: 300px;
+  height: 200px;
+  background-image: url("../public/image/logoBaca-removebg-preview.png"); /* Path to logo image */
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+.textSection {
+  width: 50%;
+  padding: 20px;
+  font-family: Montserrat;
+}
+
+.textSection h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-family: Montserrat;
+}
+
+.textSection p {
+  font-size: 1.1rem;
+  color: #555;
+  font-family: Montserrat;
+}
+
+/* Additional Information Section */
+.additionalInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin: 3rem 50px;
+}
+
+.infoItem {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: montserrat;
+}
+
+.infoItem h3 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.infoItem p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* icon */
+
+.icon1 {
+  width: 280px;
+  height: 220px;
+  background-image: url("../public/image/ngalagena.png"); /* Path to logo image */
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  transition: transform 0.5s ease;
+}
+
+.icon1:hover {
+  transform: scale(1.05);
+}
+
+.icon2 {
+  width: 200px;
+  height: 220px;
+  background-image: url("../public/image/RARANGKE\ .png"); /* Path to logo image */
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  transition: transform 0.5s ease;
+}
+
+.icon2:hover:hover {
+  transform: scale(1.05);
+}
+
+.icon3 {
+  width: 320px;
+  height: 220px;
+  background-image: url("../public/image/suara.png"); /* Path to logo image */
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  transition: transform 0.5s ease;
+}
+
+.icon3:hover {
+  transform: scale(1.05);
+}
+
+.icon4 {
+  width: 200px;
+  height: 220px;
+  background-image: url("../public/image/angka.png"); /* Path to logo image */
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  transition: transform 0.5s ease;
+}
+
+.icon4:hover {
+  transform: scale(1.05);
+}
+
+.icon5 {
+  width: 200px;
+  height: 220px;
+  background-image: url("../public/image/latihan.png"); /* Path to logo image */
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  transition: transform 0.5s ease;
+}
+
+.icon5:hover {
+  transform: scale(1.05);
+}
+
+/* footer */
+
+/* Adjust the layout for mobile responsiveness */
+@media (max-width: 768px) {
+  .additionalInfo {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .additionalInfo {
+    grid-template-columns: 1fr;
+  }
+}

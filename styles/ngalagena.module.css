@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.textSection {
+  margin-bottom: 20px;
+}
+
+.textSection h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: montserrat;
+}
+
+.textSection p {
+  font-size: 1rem;
+  color: #555;
+  font-family: montserrat;
+}
+
+.tableSection {
+  padding: 20px;
+}
+
+.tableSection h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: montserrat;
+}
+
+.tableGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Two columns per row */
+  gap: 20px; /* Space between items */
+}
+
+.tableItem {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 150px;
+  height: 150px; /* Square cell size */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+}
+
+.character {
+  font-size: 3rem; /* Adjusted font size for better fit */
+  font-weight: bold;
+  color: #000;
+}
+
+.tableItem span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem; /* Smaller font for the label */
+  font-weight: normal;
+  color: #000;
+}
+
+.logoSection {
+  flex: 1;
+  min-width: 200px;
+}
+
+.logoSection h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-family: montserrat;
+}
+
+.logoSection p {
+  font-size: 24px;
+  font-family: "Sundanese Unicode", sans-serif;
+}
+
+.linkSection {
+  display: flex;
+  gap: 40px;
+  flex: 2;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  min-width: 200px;
+}
+
+.linkSection div h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.linkSection div p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #aaa;
+}

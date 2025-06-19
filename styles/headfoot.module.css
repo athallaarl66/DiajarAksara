@@ -1,0 +1,114 @@
+/* Header Styling */
+.header {
+  background-color: #2c3e50; /* Adjust this to the header background color */
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between; /* This keeps the logo on the left and nav on the right */
+  align-items: center;
+  font-family: Montserrat;
+  height: 71.19px;
+  width: 100%; /* Ensures the header spans the full width */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0 20px; /* Adds some padding to prevent the content from touching the edges */
+}
+
+header .logo {
+  background-image: url("../public/image/logo-removebg-preview.png"); /* Path to logo image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px; /* Adjust width of the logo */
+  height: 50px; /* Adjust height of the logo */
+  position: fixed;
+}
+
+.navLinks {
+  list-style: none;
+  margin-left: 100px;
+  padding: 0;
+  display: flex;
+  gap: 30px; /* Adds more space between links */
+}
+
+.navLinks li {
+  font-size: 1rem;
+  font-family: Montserrat;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: Montserrat;
+  transition: color 0.3s ease; /* Adds a smooth color change effect on hover */
+}
+
+.navLinks a:hover {
+  color: #3498db; /* Changes the color of links on hover */
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logoSection {
+  flex: 1;
+  min-width: 200px;
+  width: 150px;
+  height: 60px;
+  background-image: url("/image/logo-removebg-preview.png"); /* Adjust path for the logo image */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+}
+
+.logoSection h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.logoSection p {
+  font-size: 24px;
+  font-family: "Sundanese Unicode", sans-serif;
+}
+
+.linkSection {
+  display: flex;
+  gap: 40px;
+  flex: 2;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  min-width: 200px;
+}
+
+.linkSection div h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.linkSection div p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footerBottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 13px;
+  color: #999;
+}
