@@ -1,11 +1,11 @@
-// pages/index.js
+// pages/index.tsx
 import Head from "next/head";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import MainSections from "../components/homepage/MainSections"; // Menggabungkan PembelajaranAksara, Latihan, dan Features
-import styles from "../styles/Home.module.css";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
+import MainSections from "../../components/homepage/MainSections"; // Menggabungkan PembelajaranAksara, Latihan, dan Features
+import styles from "../../styles/Home.module.css";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -33,4 +33,6 @@ export default function Home() {
       <Footer />
     </>
   );
-}
+};
+
+export default Home;

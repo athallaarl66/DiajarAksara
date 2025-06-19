@@ -40,8 +40,9 @@ header .logo img {
 }
 
 .heroTitle {
-  font-size: 3rem;
+  font-size: 35px;
   z-index: 2;
+  text-align: left;
 }
 
 .heroDesc {
@@ -102,31 +103,33 @@ header .logo img {
 }
 
 .textSection p {
-  font-size: 1.5rem;
+  font-size: 18px;
   color: #555;
 }
 
 .imageAksara {
-  width: 400px;
-  height: 300px;
+  width: 350px;
+  height: 200px;
   background-image: url("../public/image/LOGOA.png"); /* Ganti dengan path gambar yang sesuai */
   background-size: cover;
   background-position: center;
   border-radius: 10px;
+  margin-left: 100px;
 }
 
 .imageLatihan {
-  width: 400px;
-  height: 300px;
+  width: 350px;
+  height: 200px;
   background-image: url("../public/image/LatihanHome.png"); /* Ganti dengan path gambar yang sesuai */
   background-size: cover;
   background-position: center;
   border-radius: 10px;
+  margin-left: 100px;
 }
 
 .imagePembelajaran {
-  width: 400px;
-  height: 300px;
+  width: 350px;
+  height: 200px;
   background-image: url("../public/image/papantulis.png"); /* Ganti dengan path gambar yang sesuai */
   background-size: cover;
   background-position: center;
@@ -150,6 +153,9 @@ header .logo img {
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
+  margin-bottom: 100px;
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 .featureItem {

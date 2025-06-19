@@ -1,0 +1,236 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffffff;
+  color: #111;
+  overflow-x: hidden;
+}
+
+.main {
+  font-family: "Arial", sans-serif;
+  background-color: #ffffff; /* Lighter background */
+  color: #333;
+  padding: 0;
+}
+
+.section {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+.imageLatihan {
+  flex: 1;
+  background-image: url("../public/image/Latihan-logo.png"); /* Replace with the actual image path */
+  background-size: cover;
+  background-position: center;
+  height: 320px;
+  border-radius: 10px;
+}
+
+.textSectionLatihan {
+  flex: 1;
+  padding-left: 30px;
+}
+
+.textSectionLatihan h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+.textSectionLatihan p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.features {
+  background-color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(280px, 1fr)
+  ); /* Adjusting the column layout */
+  gap: 80px;
+  justify-items: center;
+}
+
+.featureItem {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  width: 100%;
+  max-width: 300px; /* Set max-width for the cards */
+}
+
+.featureItem h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 15px 0;
+  color: #333;
+}
+
+.featureItem p {
+  font-size: 1rem;
+  color: #777;
+  line-height: 1.5;
+}
+
+.featureItem a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* icon */
+
+/* Hover effect */
+.iconRangken:hover {
+  transform: scale(1.05); /* Scale up the image slightly */
+  opacity: 0.8; /* Slightly reduce opacity for effect */
+}
+
+.iconRangken {
+  width: 311px; /* Set width */
+  height: 192px;
+  margin-bottom: 10px;
+  background-image: url("../public/image/RARANGKE\ .png"); /* Set the image URL */
+  background-size: cover; /* Ensures the image covers the div */
+  background-position: center; /* Center the image */
+  cursor: pointer; /* Makes the cursor a pointer on hover */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation on hover */
+}
+
+.iconMenulis {
+  width: 311px; /* Set width */
+  height: 192px;
+  margin-bottom: 10px;
+  background-image: url("../public/image/menulis.png"); /* Set the image URL */
+  background-size: cover; /* Ensures the image covers the div */
+  background-position: center; /* Center the image */
+  cursor: pointer; /* Makes the cursor a pointer on hover */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation on hover */
+}
+
+.iconMenulis:hover {
+  transform: scale(1.05); /* Scale up the image slightly */
+  opacity: 0.8; /* Slightly reduce opacity for effect */
+}
+
+.iconAksarasunda {
+  width: 311px; /* Set width */
+  height: 192px;
+  margin-bottom: 10px;
+  background-image: url("../public/image/belajarAksara.png"); /* Set the image URL */
+  background-size: cover; /* Ensures the image covers the div */
+  background-position: center; /* Center the image */
+  cursor: pointer; /* Makes the cursor a pointer on hover */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation on hover */
+}
+
+.iconAksarasunda:hover {
+  transform: scale(1.05); /* Scale up the image slightly */
+  opacity: 0.8; /* Slightly reduce opacity for effect */
+}
+
+.iconMembaca {
+  width: 311px; /* Set width */
+  height: 192px;
+  margin-bottom: 10px;
+  background-image: url("../public/image/latihan.png"); /* Set the image URL */
+  background-size: cover; /* Ensures the image covers the div */
+  background-position: center; /* Center the image */
+  cursor: pointer; /* Makes the cursor a pointer on hover */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation on hover */
+}
+
+.iconMembaca:hover {
+  transform: scale(1.05); /* Scale up the image slightly */
+  opacity: 0.8; /* Slightly reduce opacity for effect */
+}
+
+.iconSwaraAngka {
+  width: 311px; /* Set width */
+  height: 192px;
+  margin-bottom: 10px;
+  background-image: url("../public/image/angka\ dan\ swara.png"); /* Set the image URL */
+  background-size: cover; /* Ensures the image covers the div */
+  background-position: center; /* Center the image */
+  cursor: pointer; /* Makes the cursor a pointer on hover */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation on hover */
+}
+
+.iconSwaraAngka:hover {
+  transform: scale(1.05); /* Scale up the image slightly */
+  opacity: 0.8; /* Slightly reduce opacity for effect */
+}
+
+.iconAksaraNgalagena {
+  width: 311px; /* Set width */
+  height: 192px;
+  margin-bottom: 10px;
+  background-image: url("../public/image/ngalagena.png"); /* Set the image URL */
+  background-size: cover; /* Ensures the image covers the div */
+  background-position: center; /* Center the image */
+  cursor: pointer; /* Makes the cursor a pointer on hover */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation on hover */
+}
+
+.iconAksaraNgalagena:hover {
+  transform: scale(1.05); /* Scale up the image slightly */
+  opacity: 0.8; /* Slightly reduce opacity for effect */
+}
+
+/* CSS Grid for Aksara Swara section */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for the grid */
+  gap: 20px;
+  justify-content: center;
+}
+
+.gridItem {
+  text-align: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.symbol {
+  font-size: 3rem; /* Adjust font size for symbols */
+  font-family: "Sundanese Unicode", serif;
+  margin-bottom: 10px;
+}
+
+.symbolLabel {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.symbolDesc {
+  font-size: 1rem;
+  color: #444;
+}

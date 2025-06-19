@@ -1,109 +1,79 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffffff;
+  color: #111;
+  overflow-x: hidden;
 }
 
 .section {
-  display: flex;
-  flex-direction: column;
-  margin-top: 100px;
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .textSection {
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .textSection h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  font-family: montserrat;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .textSection p {
-  font-size: 1rem;
-  color: #555;
-  font-family: montserrat;
-}
-
-.tableSection {
-  padding: 20px;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .tableSection h3 {
-  font-size: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 20px;
-  font-family: montserrat;
+  margin-bottom: 40px;
 }
 
 .tableGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Two columns per row */
-  gap: 20px; /* Space between items */
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .tableItem {
   text-align: center;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 150px;
-  height: 150px; /* Square cell size */
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: #f7f7f7;
+}
+
+.tableItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tableItem span:first-child {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 10px;
 }
 
 .character {
-  font-size: 3rem; /* Adjusted font size for better fit */
-  font-weight: bold;
+  font-size: 2.5rem;
   color: #000;
-}
-
-.tableItem span {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.2rem; /* Smaller font for the label */
-  font-weight: normal;
-  color: #000;
-}
-
-.logoSection {
-  flex: 1;
-  min-width: 200px;
-}
-
-.logoSection h3 {
-  font-size: 24px;
-  margin-bottom: 5px;
-  font-family: montserrat;
-}
-
-.logoSection p {
-  font-size: 24px;
-  font-family: "Sundanese Unicode", sans-serif;
-}
-
-.linkSection {
-  display: flex;
-  gap: 40px;
-  flex: 2;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  min-width: 200px;
-}
-
-.linkSection div h4 {
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
-.linkSection div p {
-  margin: 4px 0;
-  font-size: 14px;
-  color: #aaa;
+  font-family: "Sundanese Unicode", serif;
 }

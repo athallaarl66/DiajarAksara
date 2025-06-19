@@ -11,7 +11,7 @@ const MembacaAksaraPage = () => {
       <Header />
 
       {/* Main Content Section */}
-      <section className={styles.mainSection}>
+      <section className={styles.bodyHtml}>
         <div className={styles.imageSection}></div>
         <div className={styles.textSection}>
           <h2>Understanding Aksara Sunda</h2>
@@ -36,7 +36,9 @@ const MembacaAksaraPage = () => {
           </p>
         </div>
         <div className={styles.infoItem}>
-          <div className={styles.icon2}></div>
+          <Link href="/rarangken">
+            <div className={styles.icon2}></div>
+          </Link>
           <h3>Rarangkén</h3>
           <p>
             Practice sheets are customized based on a child’s learning
@@ -44,7 +46,9 @@ const MembacaAksaraPage = () => {
           </p>
         </div>
         <div className={styles.infoItem}>
-          <div className={styles.icon3}></div>
+          <Link href="/aksara-swara">
+            <div className={styles.icon3}></div>
+          </Link>
           <h3>Aksara Swara</h3>
           <p>
             Practice sheets are customized based on a child’s learning
@@ -52,7 +56,9 @@ const MembacaAksaraPage = () => {
           </p>
         </div>
         <div className={styles.infoItem}>
-          <div className={styles.icon4}></div>
+          <Link href="/aksara-angka">
+            <div className={styles.icon4}></div>
+          </Link>
           <h3>Angka</h3>
           <p>
             Practice sheets are customized based on a child’s learning
@@ -60,7 +66,9 @@ const MembacaAksaraPage = () => {
           </p>
         </div>
         <div className={styles.infoItem}>
-          <div className={styles.icon5}></div>
+          <Link href="/latihan">
+            <div className={styles.icon5}></div>
+          </Link>
           <h3>Latihan</h3>
           <p>
             Practice sheets are customized based on a child’s learning
