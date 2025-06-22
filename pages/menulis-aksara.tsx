@@ -1,4 +1,5 @@
 // pages/membaca-aksara.js
+import "../styles/globals.css";
 import Header from "../components/headerFitur"; // Import the Header component
 import Footer from "../components/footerFitur"; // Import the Footer component
 import styles from "../styles/menulis.module.css"; // CSS for this page

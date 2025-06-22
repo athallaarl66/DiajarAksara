@@ -1,0 +1,13 @@
+/* styles/globals.css */
+
+/* Aturan global untuk body dan html */
+body,
+html {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #111;
+  overflow-x: hidden;
+}

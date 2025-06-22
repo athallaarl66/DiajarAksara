@@ -1,3 +1,4 @@
+import "../styles/globals.css";
 import styles from "../styles/latihan.module.css"; // CSS styling
 import Header from "../components/headerFitur"; // Import Header
 import Footer from "../components/footerFitur"; // Import Footer

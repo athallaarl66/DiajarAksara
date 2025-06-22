@@ -1,3 +1,4 @@
+import "../styles/globals.css";
 import styles from "../styles/rarangken.module.css";
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";

@@ -1,15 +1,17 @@
 import { GetServerSideProps } from "next";
 
+// Fungsi Home yang tidak menampilkan apa pun, karena hanya untuk melakukan redirect
 export default function Home() {
   return null; // Tidak menampilkan apa pun karena sudah di-redirect
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  // Redirect ke halaman /aksara-angka pada server-side
+// Menyediakan logika server-side untuk melakukan redirect
+export const getServerSideProps: GetServerSideProps = async () => {
+  // Tidak perlu `context` di sini
   return {
     redirect: {
-      destination: "/dashboard",
-      permanent: false, // Tidak permanen (misalnya untuk login)
+      destination: "/dashboard", // Halaman yang akan dituju
+      permanent: false, // Redirect tidak permanen
     },
   };
 };

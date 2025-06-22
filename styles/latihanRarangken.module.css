@@ -1,11 +1,3 @@
-/* General Body Styling */
-body {
-  font-family: "Montserrat", sans-serif; /* Apply Montserrat font globally */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* Container and Title */
 .container {
   display: flex;

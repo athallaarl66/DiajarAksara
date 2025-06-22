@@ -1,8 +1,9 @@
-// components/Header.js
+// components/Header.tsx
 "use client"; // Marking this component as a client-side component to use hooks
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Image from "next/image"; // Import Image component from Next.js
 import styles from "../styles/Home.module.css";
 
 const Header = () => {
@@ -29,10 +30,12 @@ const Header = () => {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <img
+          <Image
             src="/image/logo-removebg-preview.png"
             alt="Diajar Aksara Logo"
             className={styles.logoImage}
+            width={150} // Define width for Image component
+            height={150} // Define height for Image component
           />
         </div>
         <nav>

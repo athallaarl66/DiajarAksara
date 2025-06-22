@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import "../styles/globals.css";
 import styles from "../styles/swara.module.css"; // Gunakan CSS untuk styling
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";

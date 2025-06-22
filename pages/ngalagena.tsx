@@ -1,7 +1,7 @@
-import Link from "next/link";
+import "../styles/globals.css";
 import styles from "../styles/ngalagena.module.css";
-import Header from "../components/headerFitur"; // Import the Header component
-import Footer from "../components/footerFitur"; // Import the Footer component
+import Header from "../components/headerFitur"; // Import Header component
+import Footer from "../components/footerFitur"; // Import Footer component
 
 const NgalagenaPage = () => (
   <main className={styles.main}>
@@ -17,7 +17,7 @@ const NgalagenaPage = () => (
           with the vowel /a/. In the Sundanese language, the hierarchy of the
           language is based on the situation and relationship between the
           speakers. Ngalagena is typically used to write Sundanese at the level
-          of "lemes" (soft) or "lemes pisan" (very soft).
+          of &quot;lemes&quot; (soft) or &quot;lemes pisan&quot; (very soft).
         </p>
       </div>
     </section>

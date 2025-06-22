@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import "../styles/globals.css";
 import Header from "../components/headerFitur"; // Import the Header component
 import Footer from "../components/footerFitur"; // Import the Footer component
 import styles from "../styles/latihanNulis.module.css"; // CSS module for styling

@@ -1,4 +1,7 @@
 import styles from "../styles/angka.module.css"; // Gunakan CSS untuk styling
+import Image from "next/image"; // Import Image dari next/image
+
+import "../styles/globals.css";
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";
 
@@ -72,7 +75,17 @@ export default function AksaraAngkaPage() {
         <div className={styles.gridContainer}>
           {aksaraAngkaData.map((item, index) => (
             <div className={styles.gridItem} key={index}>
-              <div className={styles.symbol}>{item.symbol}</div>
+              {/* Gunakan Image untuk menampilkan gambar aksara */}
+              <div className={styles.symbol}>
+                <Image
+                  src={`/images/${item.name
+                    .toLowerCase()
+                    .replace(/\s+/g, "")}.png`} // Menggunakan nama aksara sebagai nama gambar
+                  alt={item.name}
+                  width={100} // Tentukan lebar gambar
+                  height={100} // Tentukan tinggi gambar
+                />
+              </div>
               <div className={styles.symbolLabel}>{item.name}</div>
               <div className={styles.symbolDesc}>{item.description}</div>
             </div>

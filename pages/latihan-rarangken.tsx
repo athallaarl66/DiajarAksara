@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
-import Header from "../components/headerFitur"; // Import Header component
-import Footer from "../components/footerFitur"; // Import Footer component
-import styles from "../styles/latihanRarangken.module.css"; // Import the CSS module
+import "../styles/globals.css";
+import Header from "../components/headerFitur";
+import Footer from "../components/footerFitur";
+import styles from "../styles/latihanRarangken.module.css";
 
 const aksaraData = [
   { label: "Panéléng", imageClass: "panéléng", sound: "/é/" },
@@ -18,19 +19,16 @@ const aksaraData = [
 const ColorWindow = () => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
-  const [penColor, setPenColor] = useState("#000000"); // This will control the drawing color
-  const [selectedCharacter, setSelectedCharacter] = useState("ᮊ"); // Default character to display
-  const [selectedLabel, setSelectedLabel] = useState("Panéléng"); // Default label to display
+  const [penColor, setPenColor] = useState("#000000");
+  const [selectedLabel, setSelectedLabel] = useState("Panéléng");
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Handle the character change when arrows are clicked
   const handlePrevious = () => {
     const currentIndex = aksaraData.findIndex(
       (item) => item.label === selectedLabel
     );
     const previousIndex =
       currentIndex === 0 ? aksaraData.length - 1 : currentIndex - 1;
-    setSelectedCharacter(aksaraData[previousIndex].label);
     setSelectedLabel(aksaraData[previousIndex].label);
   };
 
@@ -40,11 +38,9 @@ const ColorWindow = () => {
     );
     const nextIndex =
       currentIndex === aksaraData.length - 1 ? 0 : currentIndex + 1;
-    setSelectedCharacter(aksaraData[nextIndex].label);
     setSelectedLabel(aksaraData[nextIndex].label);
   };
 
-  // Drawing functions
   const startDrawing = (e: React.MouseEvent | React.TouchEvent) => {
     const { offsetX, offsetY } = e.nativeEvent as MouseEvent;
     setIsDrawing(true);
@@ -64,7 +60,7 @@ const ColorWindow = () => {
       context.beginPath();
       context.moveTo(lastPosition.x, lastPosition.y);
       context.lineTo(offsetX, offsetY);
-      context.strokeStyle = penColor; // Use penColor for drawing
+      context.strokeStyle = penColor;
       context.lineWidth = 5;
       context.lineJoin = "round";
       context.lineCap = "round";
@@ -85,16 +81,13 @@ const ColorWindow = () => {
     }
   };
 
-  // Reset color to black when selecting a color for drawing
   const handleColorChange = (color: string) => {
-    setPenColor(color); // Set pen color for drawing, aksara color will stay black
+    setPenColor(color);
   };
 
   return (
     <div className={styles.container}>
-      {/* Header Section */}
-      <Header /> {/* Include the Header component */}
-      {/* Aksara Ngalagena Section */}
+      <Header />
       <section className={styles.tableSection}>
         <h3 className={styles.title}>Aksara Ngalagena Characters</h3>
         <div className={styles.grid}>
@@ -103,7 +96,6 @@ const ColorWindow = () => {
               key={index}
               className={styles.card}
               onClick={() => {
-                setSelectedCharacter(item.label);
                 setSelectedLabel(item.label);
               }}
             >
@@ -116,14 +108,10 @@ const ColorWindow = () => {
           ))}
         </div>
       </section>
-      {/* Digital Board Section */}
       <div className={styles.digitBoard}>
         <div className={styles.digitBoardContent}>
           <h4>Contoh Aksara Ngalagena</h4>
-          <div
-            className={styles.displayCharacter}
-            style={{ color: "#000000" }} // Always set character color to black
-          >
+          <div className={styles.displayCharacter} style={{ color: "#000000" }}>
             <div
               className={`${styles.symbolcontoh} ${
                 styles[selectedLabel.toLowerCase().replace(/\s+/g, "")]
@@ -135,7 +123,6 @@ const ColorWindow = () => {
           </div>
         </div>
       </div>
-      {/* Arrows to Change Character */}
       <div className={styles.arrowButtons}>
         <button className={styles.arrowButton} onClick={handlePrevious}>
           ←
@@ -144,7 +131,6 @@ const ColorWindow = () => {
           →
         </button>
       </div>
-      {/* Color Picker (Pen Color) */}
       <div className={styles.kotak}>
         <div className={styles.circles}>
           <div
@@ -173,7 +159,6 @@ const ColorWindow = () => {
           ></div>
         </div>
       </div>
-      {/* Canvas Area */}
       <div className={styles.contentBox}>
         <canvas
           ref={canvasRef}
@@ -189,12 +174,10 @@ const ColorWindow = () => {
           onTouchMove={draw}
         />
       </div>
-      {/* Clear Canvas Button */}
       <div className={styles.clearButton}>
         <button onClick={clearCanvas}>Clear</button>
       </div>
-      {/* Footer Section */}
-      <Footer /> {/* Include Footer component */}
+      <Footer />
     </div>
   );
 };
