@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/headerFitur"; // Import the Header component
 import Footer from "../components/footerFitur"; // Import the Footer component
+import Image from "next/image"; // Import Image from Next.js
 import styles from "../styles/AboutUs.module.css"; // Import CSS for About Us page
 
 const AboutUs = () => {
@@ -28,7 +29,15 @@ const AboutUs = () => {
       {/* Image Section */}
       <section className={styles.imageSection}>
         <div className={styles.imageContainer}>
-          <img src="/images/team.jpg" alt="Our Team" className={styles.image} />
+          {/* Replace <img> with <Image> */}
+          <Image
+            src="/images/team.jpg" // Path to the image
+            alt="Our Team" // Alt text for the image
+            className={styles.image}
+            width={800} // Set the width for the image
+            height={500} // Set the height for the image
+            layout="responsive" // Ensures the image is responsive
+          />
         </div>
       </section>
 
@@ -48,17 +57,38 @@ const AboutUs = () => {
         <h2>Meet Our Team</h2>
         <div className={styles.teamMembers}>
           <div className={styles.member}>
-            <img src="/images/member1.jpg" alt="Team Member 1" />
+            {/* Replace <img> with <Image> */}
+            <Image
+              src="/images/member1.jpg"
+              alt="Team Member 1"
+              width={120}
+              height={120}
+              className={styles.memberImage}
+            />
             <h3>John Doe</h3>
             <p>Founder & CEO</p>
           </div>
           <div className={styles.member}>
-            <img src="/images/member2.jpg" alt="Team Member 2" />
+            {/* Replace <img> with <Image> */}
+            <Image
+              src="/images/member2.jpg"
+              alt="Team Member 2"
+              width={120}
+              height={120}
+              className={styles.memberImage}
+            />
             <h3>Jane Smith</h3>
             <p>Lead Developer</p>
           </div>
           <div className={styles.member}>
-            <img src="/images/member3.jpg" alt="Team Member 3" />
+            {/* Replace <img> with <Image> */}
+            <Image
+              src="/images/member3.jpg"
+              alt="Team Member 3"
+              width={120}
+              height={120}
+              className={styles.memberImage}
+            />
             <h3>Mike Johnson</h3>
             <p>Marketing Manager</p>
           </div>

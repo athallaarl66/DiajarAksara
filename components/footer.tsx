@@ -1,3 +1,5 @@
+import Link from "next/link"; // Importing the Link component from Next.js
+
 const Footer = () => (
   <footer className="footer">
     <div className="footerContent">
@@ -8,21 +10,21 @@ const Footer = () => (
             <a href="/about">Tentang Kami</a>
           </h4>
           <p>
-            <a href="/tentangKami">Diajar Aksara</a>
+            <Link href="/membaca-aksara">Membaca Aksara</Link>
           </p>
         </div>
         <div>
           <h4>
-            <a href="/services">Layanan Kami</a>
+            <Link href="/services">Layanan Kami</Link>
           </h4>
           <p>
-            <a href="/membaca-aksara">Membaca Aksara</a>
+            <Link href="/membaca-aksara">Membaca Aksara</Link>
           </p>
           <p>
-            <a href="/menulis-aksara">Menulis Aksara</a>
+            <Link href="/menulis-aksara">Menulis Aksara</Link>
           </p>
           <p>
-            <a href="/latihan">Latihan Aksara</a>
+            <Link href="/latihan">Latihan Aksara</Link>
           </p>
         </div>
       </div>
