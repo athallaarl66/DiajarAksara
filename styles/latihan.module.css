@@ -1,32 +1,32 @@
 .main {
-  font-family: "Arial", sans-serif;
+  font-family: "montserrat", sans-serif;
   background-color: #ffffff; /* Lighter background */
   color: #333;
   padding: 0;
 }
 
 .section {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 100px;
+  justify-content: center;
+  margin-top: 150px;
+  font-family: Montserrat;
+  flex-direction: row; /* Default direction for desktop */
 }
 
 .imageLatihan {
-  flex: 1;
+  width: 380px;
+  height: 280px;
   background-image: url("../public/image/Latihan-logo.png"); /* Replace with the actual image path */
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
-  height: 320px;
-  border-radius: 10px;
 }
 
 .textSectionLatihan {
-  flex: 1;
-  padding-left: 30px;
+  width: 50%;
+  padding: 20px;
+  font-family: Montserrat;
 }
 
 .textSectionLatihan h2 {
@@ -40,6 +40,56 @@
   font-size: 1.1rem;
   color: #555;
   line-height: 1.6;
+}
+
+/* ========================= */
+/*      MOBILE RESPONSIVENESS */
+/* ========================= */
+
+@media (max-width: 768px) {
+  /* Stack the elements vertically on smaller screens */
+  .section {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Padding for better spacing */
+  }
+
+  .imageLatihan {
+    width: 80%; /* Make the image smaller on mobile */
+    height: auto; /* Let the height scale based on width */
+    max-width: 350px; /* Maximum width to keep image size in check */
+    margin-bottom: 20px; /* Space between image and text */
+  }
+
+  .textSectionLatihan {
+    width: 100%; /* Take full width on smaller screens */
+    padding: 10px;
+  }
+
+  .textSectionLatihan h2 {
+    font-size: 1.8rem; /* Adjust heading size for mobile */
+    margin-bottom: 12px;
+  }
+
+  .textSectionLatihan p {
+    font-size: 1rem; /* Adjust paragraph size for better readability on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  /* For extra small devices, further adjust */
+  .imageLatihan {
+    width: 90%; /* Even smaller width on very small screens */
+    height: auto;
+  }
+
+  .textSectionLatihan h2 {
+    font-size: 1.6rem; /* Further adjust heading size */
+  }
+
+  .textSectionLatihan p {
+    font-size: 0.95rem; /* Adjust paragraph size for readability */
+  }
 }
 
 .features {

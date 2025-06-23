@@ -131,7 +131,7 @@ const ColorWindow = () => {
       <Header />
       <section className={styles.tableSection}>
         <div className={styles.tableGrid}>
-          <h2>Aksara Swara</h2>
+          <h2>Aksara Angka</h2>
           <p>
             Aksara Swara adalah sistem vokal dalam aksara Sunda. Setiap aksara
             swara digunakan untuk menuliskan bunyi vokal dalam bahasa Sunda.

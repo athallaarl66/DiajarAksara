@@ -1,5 +1,11 @@
 /* MembacaAksara.module.css */
-
+.atas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+  font-family: Montserrat;
+}
 /* header */
 .pageContainer {
   display: flex;
@@ -10,40 +16,82 @@
 
 .mainSection {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 150px;
-  font-family: Montserrat;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 100px 20px 50px;
+  font-family: "Montserrat", sans-serif;
 }
 
+/* Gambar utama */
 .imageSection {
   width: 300px;
   height: 200px;
-  background-image: url("../public/image/logoBaca-removebg-preview.png"); /* Path to logo image */
+  background: url("/image/logoBaca-removebg-preview.png") center/contain
+    no-repeat;
   border-radius: 10px;
-  background-size: cover;
-  background-position: center;
 }
 
+/* Teks deskripsi */
 .textSection {
-  width: 50%;
+  flex: 1 1 300px;
   padding: 20px;
-  font-family: Montserrat;
 }
 
 .textSection h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   color: #333;
-  font-family: Montserrat;
 }
 
 .textSection p {
   font-size: 1.1rem;
   color: #555;
-  font-family: Montserrat;
+  line-height: 1.6;
 }
 
+/* RESPONSIVE ADJUSTMENT */
+@media (max-width: 768px) {
+  .mainSection {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    text-align: center;
+  }
+
+  .imageSection {
+    width: 200px;
+    height: 150px;
+    background-size: contain;
+    margin-bottom: 20px;
+  }
+
+  .textSection {
+    padding: 0 10px;
+  }
+
+  .textSection h2 {
+    font-size: 1.5rem;
+  }
+
+  .textSection p {
+    font-size: 1rem;
+  }
+}
+
+/* Animasi sederhana */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* Additional Information Section */
 .additionalInfo {
   display: grid;

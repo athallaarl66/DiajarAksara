@@ -107,6 +107,41 @@ const ColorWindow = () => {
     setPenColor(color); // Set pen color for drawing, aksara color will stay black
   };
 
+  // Handle touch events to ensure mobile compatibility
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDrawing || !canvasRef.current) return;
+    const touch = e.touches[0];
+    const canvasRect = canvasRef.current.getBoundingClientRect();
+    const offsetX = touch.clientX - canvasRect.left;
+    const offsetY = touch.clientY - canvasRect.top;
+
+    const context = canvasRef.current.getContext("2d");
+    if (context) {
+      context.beginPath();
+      context.moveTo(lastPosition.x, lastPosition.y);
+      context.lineTo(offsetX, offsetY);
+      context.strokeStyle = penColor; // Use penColor for drawing
+      context.lineWidth = 5;
+      context.lineJoin = "round";
+      context.lineCap = "round";
+      context.stroke();
+    }
+    setLastPosition({ x: offsetX, y: offsetY });
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    const canvasRect = canvasRef.current?.getBoundingClientRect();
+    const offsetX = touch.clientX - (canvasRect?.left || 0);
+    const offsetY = touch.clientY - (canvasRect?.top || 0);
+    setIsDrawing(true);
+    setLastPosition({ x: offsetX, y: offsetY });
+  };
+
+  const handleTouchEnd = () => {
+    setIsDrawing(false);
+  };
+
   return (
     <div>
       {/* Header Section outside container */}
@@ -199,9 +234,9 @@ const ColorWindow = () => {
             onMouseUp={stopDrawing}
             onMouseMove={draw}
             onMouseLeave={stopDrawing}
-            onTouchStart={startDrawing}
-            onTouchEnd={stopDrawing}
-            onTouchMove={draw}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onTouchMove={handleTouchMove}
           />
         </div>
 

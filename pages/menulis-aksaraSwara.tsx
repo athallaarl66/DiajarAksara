@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "../styles/globals.css";
-import styles from "../styles/swaraNulis.module.css"; // Use CSS for styling
+import styles from "../styles/swaraNulis.module.css"; // CSS for styling
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";
 
@@ -56,7 +56,21 @@ const ColorWindow = () => {
   const [selectedLabel, setSelectedLabel] = useState("");
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Handle the character change when arrows are clicked
+  useEffect(() => {
+    const resizeCanvas = () => {
+      if (canvasRef.current) {
+        // Set the canvas width and height to be responsive based on the screen size
+        canvasRef.current.width = window.innerWidth - 40; // 40px padding for margin
+        canvasRef.current.height = window.innerWidth > 480 ? 400 : 250; // Adjust height for mobile
+      }
+    };
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas(); // Initial resize
+
+    return () => window.removeEventListener("resize", resizeCanvas);
+  }, []);
+
   const handlePrevious = () => {
     const currentIndex = aksaraSwaraData.findIndex(
       (item) => item.character === selectedCharacter
@@ -96,13 +110,17 @@ const ColorWindow = () => {
       context.beginPath();
       context.moveTo(lastPosition.x, lastPosition.y);
       context.lineTo(offsetX, offsetY);
-      context.strokeStyle = penColor;
+      context.strokeStyle = penColor; // Use penColor for drawing
       context.lineWidth = 5;
       context.lineJoin = "round";
       context.lineCap = "round";
       context.stroke();
     }
     setLastPosition({ x: offsetX, y: offsetY });
+  };
+
+  const handleColorChange = (color: string) => {
+    setPenColor(color);
   };
 
   const clearCanvas = () => {
@@ -115,10 +133,6 @@ const ColorWindow = () => {
         canvasRef.current!.height
       );
     }
-  };
-
-  const handleColorChange = (color: string) => {
-    setPenColor(color);
   };
 
   return (
@@ -160,7 +174,7 @@ const ColorWindow = () => {
         </div>
       </div>
 
-      {/* arrow button section */}
+      {/* Arrow Button Section */}
       <div className={styles.arrowButtons}>
         <button className={styles.arrowButton} onClick={handlePrevious}>
           ←
@@ -205,8 +219,6 @@ const ColorWindow = () => {
         <canvas
           ref={canvasRef}
           className={styles.contentText}
-          width={600}
-          height={400}
           onMouseDown={startDrawing}
           onMouseUp={stopDrawing}
           onMouseMove={draw}

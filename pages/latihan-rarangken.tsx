@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "../styles/globals.css";
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";
@@ -21,7 +21,24 @@ const ColorWindow = () => {
   const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
   const [penColor, setPenColor] = useState("#000000");
   const [selectedLabel, setSelectedLabel] = useState("Panéléng");
+  const [canvasSize, setCanvasSize] = useState({ width: 600, height: 400 }); // Initial canvas size
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    // Adjust canvas size when the window size changes (responsiveness)
+    const handleResize = () => {
+      const width = window.innerWidth * 0.9; // 90% of the screen width
+      const height = width * (400 / 600); // Maintain aspect ratio
+      setCanvasSize({ width, height });
+    };
+
+    handleResize(); // Call the function to set the initial size
+    window.addEventListener("resize", handleResize); // Listen to window resize event
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Cleanup listener
+    };
+  }, []);
 
   const handlePrevious = () => {
     const currentIndex = aksaraData.findIndex(
@@ -41,6 +58,7 @@ const ColorWindow = () => {
     setSelectedLabel(aksaraData[nextIndex].label);
   };
 
+  // Drawing functions
   const startDrawing = (e: React.MouseEvent | React.TouchEvent) => {
     const { offsetX, offsetY } = e.nativeEvent as MouseEvent;
     setIsDrawing(true);
@@ -72,17 +90,47 @@ const ColorWindow = () => {
   const clearCanvas = () => {
     const context = canvasRef.current?.getContext("2d");
     if (context) {
-      context.clearRect(
-        0,
-        0,
-        canvasRef.current!.width,
-        canvasRef.current!.height
-      );
+      context.clearRect(0, 0, canvasSize.width, canvasSize.height);
     }
   };
 
   const handleColorChange = (color: string) => {
     setPenColor(color);
+  };
+
+  // Handle touch events to ensure mobile compatibility
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDrawing || !canvasRef.current) return;
+    const touch = e.touches[0];
+    const canvasRect = canvasRef.current.getBoundingClientRect();
+    const offsetX = touch.clientX - canvasRect.left;
+    const offsetY = touch.clientY - canvasRect.top;
+
+    const context = canvasRef.current.getContext("2d");
+    if (context) {
+      context.beginPath();
+      context.moveTo(lastPosition.x, lastPosition.y);
+      context.lineTo(offsetX, offsetY);
+      context.strokeStyle = penColor;
+      context.lineWidth = 5;
+      context.lineJoin = "round";
+      context.lineCap = "round";
+      context.stroke();
+    }
+    setLastPosition({ x: offsetX, y: offsetY });
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    const canvasRect = canvasRef.current?.getBoundingClientRect();
+    const offsetX = touch.clientX - (canvasRect?.left || 0);
+    const offsetY = touch.clientY - (canvasRect?.top || 0);
+    setIsDrawing(true);
+    setLastPosition({ x: offsetX, y: offsetY });
+  };
+
+  const handleTouchEnd = () => {
+    setIsDrawing(false);
   };
 
   return (
@@ -163,15 +211,15 @@ const ColorWindow = () => {
         <canvas
           ref={canvasRef}
           className={styles.contentText}
-          width={600}
-          height={400}
+          width={canvasSize.width}
+          height={canvasSize.height}
           onMouseDown={startDrawing}
           onMouseUp={stopDrawing}
           onMouseMove={draw}
           onMouseLeave={stopDrawing}
-          onTouchStart={startDrawing}
-          onTouchEnd={stopDrawing}
-          onTouchMove={draw}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchMove={handleTouchMove}
         />
       </div>
       <div className={styles.clearButton}>

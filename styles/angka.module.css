@@ -1,9 +1,11 @@
 /* General Section Styling */
+
 .section {
   padding: 80px 20px;
   max-width: 1100px;
   margin: auto;
   margin-bottom: 50px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .textSection {
@@ -16,6 +18,7 @@
   font-weight: bold;
   margin-bottom: 15px; /* Increased space below the title */
   color: #000000;
+  transition: font-size 0.3s ease; /* Smooth font-size change */
 }
 
 .textSection p {
@@ -24,16 +27,35 @@
   line-height: 1.6; /* Better line spacing for readability */
   max-width: 800px;
   margin: 0 auto; /* Center the paragraph */
+  opacity: 0;
+  animation: fadeIn 1s forwards; /* Fade-in animation */
 }
 
+/* Animation for fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Grid Container */
+/* Grid Container */
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Auto-fill columns with a minimum width of 250px to avoid tight items */
+  gap: 30px; /* Increased gap to ensure grid items are not too close */
   justify-items: center;
-  padding: 20px; /* Add some padding around the grid */
+  padding: 20px; /* Padding around the grid */
+  transition: grid-template-columns 0.3s ease; /* Smooth transition for grid items */
 }
 
+/* Grid Item Styling */
 .gridItem {
   background-color: white;
   padding: 20px;
@@ -41,7 +63,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: all 0.3s ease;
-  max-width: 250px; /* Restrict the grid items width */
+  max-width: 250px; /* Restrict grid item width */
   width: 100%; /* Ensure grid items take full width within grid cell */
   margin: 0 auto; /* Center the grid items */
 }
@@ -55,6 +77,7 @@
   font-size: 2.5rem; /* Slightly larger for better visibility */
   color: #000000;
   margin-bottom: 15px;
+  transition: transform 0.3s ease; /* Smooth animation for symbol */
 }
 
 .symbolLabel {
@@ -68,9 +91,14 @@
   font-size: 1rem;
   color: #777;
   line-height: 1.6; /* Improve readability */
+  opacity: 0;
+  animation: fadeIn 1.2s forwards; /* Fade-in for description with delay */
+  animation-delay: 0.5s; /* Delay to appear after symbol label */
 }
 
-/* Ensure better responsiveness */
+/* Media Queries for Responsiveness */
+
+/* Mobile devices */
 @media (max-width: 768px) {
   .section {
     padding: 60px 15px; /* Reduced padding for smaller screens */
@@ -87,7 +115,48 @@
   .gridContainer {
     grid-template-columns: repeat(
       auto-fill,
-      minmax(150px, 1fr)
-    ); /* Adjust grid item size for mobile */
+      minmax(200px, 1fr)
+    ); /* Smaller grid items with a min width of 200px */
+    gap: 20px; /* Reduced gap for smaller screens */
+  }
+
+  .symbol {
+    font-size: 2rem; /* Adjust symbol size */
+  }
+
+  .symbolLabel {
+    font-size: 1.1rem; /* Adjust symbol label size */
+  }
+
+  .symbolDesc {
+    font-size: 0.9rem; /* Adjust symbol description size */
+  }
+}
+
+/* Very Small Devices */
+@media (max-width: 480px) {
+  .textSection h2 {
+    font-size: 1.5rem; /* Reduce title size further for very small screens */
+  }
+
+  .textSection p {
+    font-size: 0.9rem; /* Smaller paragraph font size */
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr; /* Single column layout for small screens */
+    gap: 15px; /* Reduced gap for small screens */
+  }
+
+  .symbol {
+    font-size: 1.8rem; /* Further reduced symbol size */
+  }
+
+  .symbolLabel {
+    font-size: 1rem; /* Further reduced label size */
+  }
+
+  .symbolDesc {
+    font-size: 0.8rem; /* Further reduced description size */
   }
 }

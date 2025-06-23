@@ -110,3 +110,78 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* ======= RESPONSIVE TWEAK ONLY ======= */
+@media (max-width: 600px) {
+  /* jarak keseluruhan lebih rapat */
+  .section {
+    padding: 60px 15px;
+  }
+
+  /* judul & paragraf sedikit mengecil */
+  .textSection h2 {
+    font-size: 1.8rem;
+  }
+  .textSection p {
+    font-size: 1rem;
+  }
+
+  /* tiap baris tabel boleh bungkus */
+  .row {
+    padding: 12px;
+    flex-wrap: wrap; /* ikon + latin + panah tetap sejajar,
+                                 penjelasan pindah ke bawah jika sempit */
+    gap: 10px;
+  }
+
+  /* ikon gambar */
+  .symbol {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 6px;
+  }
+
+  /* kolom latin & panah sedikit dipersempit */
+  .col,
+  .arrow {
+    width: 50px;
+    font-size: 1rem;
+  }
+
+  /* karakter Sunda mengecil */
+  .colChar {
+    width: 60px;
+    font-size: 1.7rem;
+  }
+
+  /* penjelasan pindah full-width, center */
+  .colExplain {
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.95rem;
+  }
+}
+
+/* tablet ≤ 900 px: agak menengah */
+@media (max-width: 900px) {
+  .section {
+    padding: 70px 18px;
+  }
+  .textSection h2 {
+    font-size: 2.2rem;
+  }
+  .table {
+    gap: 16px;
+  }
+  .row {
+    padding: 16px;
+  }
+  .symbol {
+    width: 70px;
+    height: 70px;
+  }
+  .colChar {
+    font-size: 2rem;
+  }
+}

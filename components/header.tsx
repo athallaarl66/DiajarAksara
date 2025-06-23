@@ -1,64 +1,108 @@
-// components/Header.tsx
-"use client"; // Marking this component as a client-side component to use hooks
+"use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import Image from "next/image"; // Import Image component from Next.js
 import styles from "../styles/Home.module.css";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setIsScrolled(true); // Add 'scrolled' class when the user scrolls more than 50px
-    } else {
-      setIsScrolled(false); // Remove 'scrolled' class when scroll position is less than 50px
-    }
-  };
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup event listener when component is unmounted
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
-      <div className={styles.container}>
-        <div className={styles.logo}>
-          <Image
-            src="/image/logo-removebg-preview.png"
-            alt="Diajar Aksara Logo"
-            className={styles.logoImage}
-            width={150} // Define width for Image component
-            height={150} // Define height for Image component
-          />
-        </div>
+    <div className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
+      <div className={styles.headerContainer}>
+        {/* Logo */}
+        <Link href="/" passHref>
+          <div className={styles.logo}>
+            <Image
+              src="/image/logo-removebg-preview.png"
+              alt="Diajar Aksara Logo"
+              width={150}
+              height={50}
+              priority
+              className={styles.logoImage}
+            />
+          </div>
+        </Link>
+
+        {/* Hamburger Menu */}
+        <button
+          className={styles.hamburger}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation"
+        >
+          <div className={styles.hamburgerIcon}></div>
+          <div className={styles.hamburgerIcon}></div>
+          <div className={styles.hamburgerIcon}></div>
+        </button>
+
+        {/* Desktop Navigation */}
         <nav>
-          <ul>
-            <li>
-              <Link href="/about">About</Link>
+          <ul className={`${styles.navList} ${menuOpen ? styles.show : ""}`}>
+            <li className={styles.navItem}>
+              <Link href="/about" className={styles.navLink}>
+                Membaca
+              </Link>
             </li>
-            <li>
-              <Link href="/features">Features</Link>
+            <li className={styles.navItem}>
+              <Link href="/features" className={styles.navLink}>
+                Menulis
+              </Link>
             </li>
-            <li>
-              <Link href="/pricing">Pricing</Link>
+            <li className={styles.navItem}>
+              <Link href="/pricing" className={styles.navLink}>
+                Latihan
+              </Link>
             </li>
-            <li>
-              <Link href="/gallery">Gallery</Link>
-            </li>
-            <li>
-              <Link href="/team">Team</Link>
+            <li className={styles.navItem}>
+              <Link href="/gallery" className={styles.navLink}>
+                Menu
+              </Link>
             </li>
           </ul>
         </nav>
       </div>
-    </header>
+
+      {/* Mobile Navigation */}
+      <div className={`${styles.navbarMobile} ${menuOpen ? styles.show : ""}`}>
+        <ul className={styles.navList}>
+          <li className={styles.navItem}>
+            <Link href="/about" className={styles.navLink}>
+              About
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href="/features" className={styles.navLink}>
+              Features
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href="/pricing" className={styles.navLink}>
+              Pricing
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href="/gallery" className={styles.navLink}>
+              Gallery
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href="/team" className={styles.navLink}>
+              Team
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 };
 

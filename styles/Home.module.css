@@ -1,170 +1,237 @@
 /* styles/Home.module.css */
 
-/* bagian header  */
+/* ============ HEADER (CSS-Modules friendly) ============ */
 
-header.scrolled {
-  background-color: rgba(0, 0, 0, 0.753); /* Dark background when scrolled */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow on scroll */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(10, 10, 10, 0.6);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
-header .container {
+.headerScrolled {
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.navList {
+  list-style: none;
   display: flex;
   align-items: center;
-  width: 100%;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
-header .logo {
+.navItem {
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #3498db;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1100;
+}
+
+.hamburgerIcon {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.show {
+  display: flex !important;
+}
+
+.navbarMobile {
+  display: none;
+}
+
+.navbarMobile.show {
   display: flex;
-  align-items: left;
-  margin-right: 70px;
-  margin-bottom: 8px;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #2c3e50;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-header .logo img {
-  height: 60px; /* Menurunkan ukuran logo */
-  width: auto; /* Memastikan proporsi gambar tetap */
+@media (max-width: 768px) {
+  .navList {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .logo img {
+    height: 40px;
+  }
 }
 
-/* Hero Section */
+/* ============================= */
+/*         HERO SECTION          */
+/* ============================= */
+
 .hero {
-  position: relative;
-  background-image: url("../public/image/BANDUNG.jpg"); /* Gambar latar belakang */
+  height: 100vh;
+  background-image: url("/image/BANDUNG.jpg");
   background-size: cover;
   background-position: center;
-  height: 507px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
+  padding: 0 20px;
 }
 
 .heroTitle {
-  font-size: 35px;
-  z-index: 2;
-  text-align: left;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .heroDesc {
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;
-  z-index: 2;
 }
 
-/* Section */
+/* ============================= */
+/*           SECTION             */
+/* ============================= */
 
-.section {
+.section,
+.sectionLatihan {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50px;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
 }
 
 .sectionReverse {
   flex-direction: row-reverse;
 }
 
-.textSection {
-  width: 50%;
-  padding: 20px;
-}
-
-/* Latihan Section - Customized */
-.sectionLatihan {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
+.textSection,
 .textSectionLatihan {
-  width: 50%;
-  padding: 20px;
+  flex: 1 1 300px;
 }
 
+.textSection h2,
 .textSectionLatihan h2 {
   font-size: 2rem;
   margin-bottom: 10px;
   color: #333;
 }
 
+.textSection p,
 .textSectionLatihan p {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: #555;
 }
 
-/*  */
+/* ============================= */
+/*           GAMBAR              */
+/* ============================= */
 
-.textSection h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.textSection p {
-  font-size: 18px;
-  color: #555;
+.imageAksara,
+.imageLatihan,
+.imagePembelajaran {
+  width: 100%;
+  max-width: 350px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
 }
 
 .imageAksara {
-  width: 350px;
-  height: 200px;
-  background-image: url("../public/image/LOGOA.png"); /* Ganti dengan path gambar yang sesuai */
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  margin-left: 100px;
+  background-image: url("/image/LOGOA.png");
 }
 
 .imageLatihan {
-  width: 350px;
-  height: 200px;
-  background-image: url("../public/image/LatihanHome.png"); /* Ganti dengan path gambar yang sesuai */
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  margin-left: 100px;
+  background-image: url("/image/LatihanHome.png");
 }
 
 .imagePembelajaran {
-  width: 350px;
-  height: 200px;
-  background-image: url("../public/image/papantulis.png"); /* Ganti dengan path gambar yang sesuai */
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
+  background-image: url("/image/papantulis.png");
 }
 
-/* Features Section */
+/* ============================= */
+/*          FEATURES             */
+/* ============================= */
+
 .features {
   text-align: center;
-  margin-top: 50px;
+  padding: 40px 20px;
 }
 
 .features h2 {
   font-size: 2rem;
-  margin-bottom: 30px;
   font-weight: bold;
+  margin-bottom: 30px;
 }
 
 .featureGrid {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
   flex-wrap: wrap;
-  margin-bottom: 100px;
-  margin-left: 70px;
-  margin-right: 70px;
+  gap: 20px;
+  justify-content: center;
 }
 
 .featureItem {
-  width: 30%;
-  padding: 20px;
-  text-align: center;
+  flex: 1 1 300px;
   background-color: #f0f4f8;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .featureItem h3 {
@@ -179,45 +246,31 @@ header .logo img {
   margin-top: 10px;
 }
 
-/* gambar icon */
-.iconMembaca {
-  width: 100px;
-  height: 100px;
-  background-image: url("../public/image/membaca.png"); /* Path ke folder public/images */
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  margin: 0 auto; /* Posisikan horizontal tengah */
-}
-
-.iconMenulis {
-  width: 100px;
-  height: 100px;
-  background-image: url("../public/image/menulis.png");
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  margin: 0 auto; /* Posisikan horizontal tengah */
-}
-
-.iconLatihan {
-  width: 100px;
-  height: 100px;
-  background-image: url("../public/image/latihan.png");
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  margin: 0 auto; /* Posisikan horizontal tengah */
-}
+/* ============================= */
+/*          ICONS                */
+/* ============================= */
 
 .iconMembaca,
 .iconMenulis,
 .iconLatihan {
-  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
   transition: transform 0.3s ease;
+}
+
+.iconMembaca {
+  background-image: url("/image/membaca.png");
+}
+
+.iconMenulis {
+  background-image: url("/image/menulis.png");
+}
+
+.iconLatihan {
+  background-image: url("/image/latihan.png");
 }
 
 .iconMembaca:hover,
@@ -226,27 +279,26 @@ header .logo img {
   transform: scale(1.05);
 }
 
-/* buat hp */
+/* ============================= */
+/*         RESPONSIVE            */
+/* ============================= */
 
 @media (max-width: 768px) {
-  .section {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  .section,
+  .sectionLatihan {
     flex-direction: column;
+    padding: 30px 15px;
   }
-
-  .sectionReverse {
-    flex-direction: column-reverse;
-  }
-
-  .textSection {
-    width: 100%;
-  }
-
   .featureGrid {
     flex-direction: column;
   }
-
   .featureItem {
-    width: 80%;
-    margin-bottom: 20px;
+    width: 100%;
+  }
+  .logo img {
+    height: 40px;
   }
 }

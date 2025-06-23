@@ -19,14 +19,6 @@
   }
 }
 
-/* body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-/* styles/globals.css */
-
 body,
 html {
   font-family: "Montserrat", sans-serif;
@@ -35,45 +27,9 @@ html {
   background-color: #ffffff;
 }
 
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between; /* This keeps the logo on the left and nav on the right */
-  align-items: center;
-  padding: 0 20px; /* Adds some padding to prevent the content from touching the edges */
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 10;
-  height: 71.19px;
-  background-color: #0a0a0a9a;
-}
-
-/* Navigation menu for desktop */
-nav ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  margin-left: 30px; /* Adjust spacing between nav items */
-}
-
-nav ul li:first-child {
-  margin-left: 0; /* Remove left margin for the first item */
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 40px; /* Matches the height of the logo */
-}
-
-/* footer */
+/* ========================= */
+/*           FOOTER          */
+/* ========================= */
 
 .footer {
   background-color: #1b1b1b;
@@ -93,6 +49,12 @@ nav ul li a {
 .logoSection {
   flex: 1;
   min-width: 200px;
+  width: 150px;
+  height: 60px;
+  background-image: url("../public/image/logo-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
 }
 
 .logoSection h3 {
@@ -123,6 +85,28 @@ nav ul li a {
   margin: 4px 0;
   font-size: 14px;
   color: #aaa;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.linkSection div p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.linkSection div p:hover {
+  color: #fff;
+}
+
+.linkSection div p:hover::after {
+  width: 100%;
 }
 
 .footerBottom {
@@ -134,15 +118,64 @@ nav ul li a {
 
 hr {
   border: 0;
-  border-top: 1px solid #333;
+  border-top: 1px solid #ffffff;
   margin-top: 40px;
 }
 
-.logoSection {
-  width: 150px;
-  height: 60px;
-  background-image: url("../public/image/logo-removebg-preview.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left center;
+/* ========================= */
+/*        RESPONSIVE         */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logoSection {
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-size: 80px auto;
+    background-repeat: no-repeat;
+    padding-top: 70px;
+    margin-bottom: 20px;
+  }
+
+  .logoSection h3,
+  .logoSection p {
+    display: block;
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .linkSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .linkSection div {
+    width: 100%;
+  }
+
+  .linkSection div h4 {
+    font-size: 16px;
+  }
+
+  .linkSection div p {
+    font-size: 15px;
+  }
+
+  .linkSection div p::after {
+    bottom: -5px;
+  }
+
+  .footerBottom {
+    padding-top: 30px;
+    font-size: 12px;
+  }
 }

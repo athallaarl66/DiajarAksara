@@ -33,38 +33,82 @@
 .tableGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 30px;
+  gap: 20px;
   justify-content: center;
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .tableItem {
   text-align: center;
-  padding: 24px;
+  padding: 24px 16px;
   border-radius: 12px;
   background-color: #f1f1f1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  height: 150px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: 130px;
 }
 
 .tableItem:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .tableItem span:first-child {
-  font-size: 1.2rem;
-  color: #555;
+  font-size: 1rem;
+  color: #666;
   margin-bottom: 10px;
+  transition: color 0.3s;
 }
 
 .character {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   color: #000;
   font-family: "Sundanese Unicode", serif;
+  transition: transform 0.3s ease;
+}
+
+.tableItem:hover .character {
+  transform: scale(1.1);
+  color: #222;
+}
+
+/* =============================== */
+/* RESPONSIVE: mobile optimization */
+/* =============================== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 15px;
+  }
+
+  .textSection h2 {
+    font-size: 2rem;
+  }
+
+  .textSection p {
+    font-size: 1rem;
+  }
+
+  .tableSection h3 {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+
+  .tableItem {
+    padding: 20px 12px;
+    min-height: 110px;
+  }
+
+  .tableItem span:first-child {
+    font-size: 0.95rem;
+  }
+
+  .character {
+    font-size: 2rem;
+  }
 }

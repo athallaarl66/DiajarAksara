@@ -12,7 +12,7 @@ const MembacaAksaraPage = () => {
       <Header />
 
       {/* Main Content Section */}
-      <section className={styles.bodyHtml}>
+      <section className={styles.atas}>
         <div className={styles.imageSection}></div>
         <div className={styles.textSection}>
           <h2>Understanding Aksara Sunda</h2>

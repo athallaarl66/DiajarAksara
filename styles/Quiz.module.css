@@ -1,27 +1,78 @@
-/* styles/Quiz.module.css */
+/* Overall container styling */
 .container {
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f0f0f0;
-  height: 100vh;
   justify-content: center;
+  min-height: 100vh;
   padding: 20px;
+  background-color: #f5f5f5;
 }
 
+/* Question Box styling */
+/* Question Box styling */
+.questionBox {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  padding: 15px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 120px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.questionList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.questionNumber {
+  width: 30px;
+  height: 30px;
+  background-color: #ddd;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.questionNumber:hover {
+  background-color: #3498db;
+  transform: scale(1.1);
+}
+
+.questionNumber.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Rest of your CSS code */
+
+/* Quiz Box */
 .quizBox {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  margin-top: 50px;
   max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .quizBox h2 {
+  font-size: 1.8rem;
   margin-bottom: 20px;
-  font-size: 18px;
+  color: #333;
 }
 
 .options {
@@ -30,26 +81,127 @@
 
 .option {
   display: block;
-  margin-bottom: 10px;
-  font-size: 16px;
+  padding: 10px;
+  margin: 8px 0;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.option:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Navigation Buttons */
 .navButtons {
   display: flex;
   justify-content: space-between;
 }
 
 .navButton {
-  background-color: #1e3d58;
-  color: white;
   padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
+  width: 48%;
 }
 
 .navButton:hover {
-  background-color: #375a7f;
+  background-color: #2980b9;
+}
+
+.navButton:disabled {
+  background-color: #b5b5b5;
+  cursor: not-allowed;
+}
+
+/* Result Box */
+.resultBox {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.resultBox h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.resultBox p {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 13px;
+  color: #999;
+  margin-top: 30px;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Adjusting the layout of the quiz */
+  .quizBox {
+    padding: 15px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .questionBox {
+    width: 1000px;
+    top: 20px;
+    right: 20px;
+    transform: translateY(0);
+  }
+
+  .questionList {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .questionNumber {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+  }
+
+  .navButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navButton {
+    width: 100%;
+  }
+
+  .resultBox {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding-top: 15px;
+  }
+
+  /* Move question box below when on mobile */
+  .questionBox {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    margin-top: 20px;
+  }
 }

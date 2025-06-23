@@ -1,3 +1,5 @@
+/* Container and Title */
+
 .tableSection h2 {
   text-align: center;
   font-size: 2rem;
@@ -16,7 +18,6 @@
   margin-bottom: 30px;
 }
 
-/* Container and Title */
 .container {
   display: flex;
   flex-direction: column;
@@ -37,10 +38,14 @@
 /* Grid Layout for Aksara Characters */
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Responsive grid */
   gap: 20px; /* Spacing between items */
   justify-content: center;
-  padding: 100px;
+  padding: 20px;
+  margin-bottom: 50px;
 }
 
 .gridItem {
@@ -74,77 +79,74 @@
   background-color: #f8f9fa;
 }
 
-/* Character Display */
 /* Digital Board */
 .digitBoard {
   margin-top: 20px; /* Adjusted margin to make it closer to the content */
   display: flex;
   justify-content: center;
-  padding: 5px; /* Reduced padding for a tighter layout */
+  padding: 5px;
 }
 
 .digitBoardContent {
   text-align: center;
-  padding: 15px; /* Reduced padding to make the content smaller */
+  padding: 15px;
   border: 2px solid #ddd;
-  border-radius: 10px; /* Slightly smaller rounded corners */
-  width: 60%; /* Reduced width */
-  max-width: 500px; /* To avoid it stretching too much on larger screens */
+  border-radius: 10px;
+  width: 60%;
+  max-width: 500px;
   background-color: #f9f9f9;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .displayCharacter {
-  font-size: 30px; /* Smaller font size for the aksara */
+  font-size: 30px;
   font-weight: bold;
   color: #000;
-  margin-bottom: 5px; /* Reduced space between character and label */
+  margin-bottom: 5px;
 }
 
-/* Ensure labels always stay black */
 .displayLabel {
   margin-top: 10px;
   font-size: 20px;
   font-weight: normal;
-  color: #000000; /* Always black for the label */
+  color: #000000;
 }
 
 /* Arrows Section */
 .arrowButtons {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Reduced gap for a more compact layout */
-  margin-top: 20px; /* Reduced margin */
-  margin-bottom: 20px; /* Reduced margin */
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .arrowButton {
-  padding: 12px 24px; /* Reduced padding for smaller button */
-  background-color: #a1a1a1; /* Solid orange color */
+  padding: 12px 24px;
+  background-color: #a1a1a1;
   border: none;
-  border-radius: 50px; /* Fully rounded corners */
+  border-radius: 50px;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease,
     box-shadow 0.3s ease;
-  font-size: 24px; /* Smaller font size */
-  font-weight: bold; /* Bold text */
-  color: white; /* White text color */
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2); /* Softer shadow for depth */
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the text inside the button */
+  justify-content: center;
 }
 
 .arrowButton:hover {
-  background-color: #000000; /* Darker orange for hover effect */
+  background-color: #000000;
   transform: scale(1.1); /* Slight grow effect on hover */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-  color: #f1f1f1;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .arrowButton:active {
   transform: scale(0.98); /* Shrink on click */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Reduced shadow on click */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Color Picker Section */
@@ -154,6 +156,7 @@
   align-items: center;
   margin-bottom: 20px;
 }
+
 .circles {
   display: flex;
   gap: 0.5rem;
@@ -209,7 +212,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto; /* Center the canvas */
+  margin: 20px auto;
 }
 
 .contentText {
@@ -222,26 +225,89 @@
   text-align: center;
   margin-top: 20px;
   margin-bottom: 50px;
+  font-family: "montserrat";
 }
 
 .clearButton button {
   padding: 10px 25px;
-  background-color: #c4c4c4; /* yellow-400 */
+  background-color: #c4c4c4;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 18px;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .clearButton button:hover {
-  background-color: #000000; /* darker yellow */
-  transform: scale(1.05); /* Slight scale effect */
+  background-color: #000000;
+  transform: scale(1.05);
   color: floralwhite;
 }
 
 .clearButton button:active {
-  transform: scale(0.98); /* Shrink effect on click */
+  transform: scale(0.98);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(150px, 1fr)
+    ); /* Adjust for medium-sized screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(130px, 1fr)
+    ); /* Adjust for small screens */
+  }
+
+  .digitBoardContent {
+    width: 80%;
+    max-width: 400px;
+  }
+
+  .contentBox {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .arrowButton {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Stack icons in one column */
+  }
+
+  .contentBox {
+    width: 100%;
+    height: 300px;
+  }
+
+  .digitBoardContent {
+    width: 100%;
+  }
+
+  .arrowButton {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
 }

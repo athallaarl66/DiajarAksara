@@ -25,6 +25,7 @@
   ); /* Adjusted for better responsiveness */
   gap: 20px;
   padding: 20px;
+  margin-bottom: 50px;
 }
 
 /* Card Styling */
@@ -61,13 +62,15 @@
 .symbolcontoh {
   width: 80px;
   height: 80px;
-  background-size: contain; /* Make sure the image is contained within the box */
+  background-size: contain; /* Ensure the image is contained within the box */
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
-  margin-left: 210px;
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
+  margin-bottom: 15px;
 }
 
 /* Individual Background Images for Symbols */
@@ -158,32 +161,6 @@
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(150px, 1fr)
-    ); /* More compact layout on smaller screens */
-  }
-}
-
-/* Optional: Add a subtle animation on page load for items */
-.card {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Canvas Styling */
 .contentBox {
   width: 100%;
@@ -195,7 +172,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto; /* Center the canvas */
+  margin: 20px auto;
 }
 
 .contentText {
@@ -257,87 +234,159 @@
 
 /* Button for clearing the canvas */
 .clearButton {
+  text-align: center;
   margin-top: 20px;
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Horizontally center the button */
-  align-items: center; /* Vertically center the button */
   margin-bottom: 50px;
+  font-family: "montserrat";
 }
 
 .clearButton button {
-  padding: 8px 20px;
-  background-color: #facc15; /* yellow-400 */
+  padding: 10px 25px;
+  background-color: #c4c4c4;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .clearButton button:hover {
-  background-color: #eab308; /* darker yellow */
+  background-color: #000000;
+  transform: scale(1.05);
+  color: floralwhite;
+}
+
+.clearButton button:active {
+  transform: scale(0.98);
 }
 
 /* Digital Board Styling */
 .digitBoard {
-  margin-top: 20px; /* Adjusted margin to make it closer to the content */
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  padding: 5px; /* Reduced padding for a tighter layout */
+  padding: 5px;
 }
 
 .digitBoardContent {
-  text-align: center;
-  padding: 15px; /* Reduced padding to make the content smaller */
-  border: 2px solid #ffffff;
-  border-radius: 10px; /* Slightly smaller rounded corners */
-  width: 60%; /* Reduced width */
-  max-width: 500px; /* To avoid it stretching too much on larger screens */
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 500px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Ensure labels always stay black */
+.displayCharacter {
+  font-size: 30px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 5px;
+}
+
 .displayLabel {
   margin-top: 10px;
   font-size: 20px;
   font-weight: normal;
-  color: #000000; /* Always black for the label */
+  color: #000000;
 }
 
 /* Arrows Section */
 .arrowButtons {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Reduced gap for a more compact layout */
-  margin-top: 20px; /* Reduced margin */
-  margin-bottom: 20px; /* Reduced margin */
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .arrowButton {
-  padding: 12px 24px; /* Reduced padding for smaller button */
-  background-color: #a1a1a1; /* Solid orange color */
+  padding: 12px 24px;
+  background-color: #a1a1a1;
   border: none;
-  border-radius: 50px; /* Fully rounded corners */
+  border-radius: 50px;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease,
     box-shadow 0.3s ease;
-  font-size: 24px; /* Smaller font size */
-  font-weight: bold; /* Bold text */
-  color: white; /* White text color */
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2); /* Softer shadow for depth */
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the text inside the button */
+  justify-content: center;
 }
 
 .arrowButton:hover {
-  background-color: #000000; /* Darker orange for hover effect */
-  transform: scale(1.1); /* Slight grow effect on hover */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-  color: #f1f1f1;
+  background-color: #000000;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .arrowButton:active {
-  transform: scale(0.98); /* Shrink on click */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Reduced shadow on click */
+  transform: scale(0.98);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  .digitBoardContent {
+    width: 80%;
+    max-width: 400px;
+  }
+
+  .contentBox {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .arrowButton {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contentBox {
+    width: 100%;
+    height: 300px;
+  }
+
+  .digitBoardContent {
+    width: 100%;
+  }
+
+  .arrowButton {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
 }
