@@ -1,114 +1,124 @@
 /* styles/Home.module.css */
 
 /* ============ HEADER (CSS-Modules friendly) ============ */
-
+/* Base styles for header */
 .header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: rgba(10, 10, 10, 0.6);
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-}
-
-.headerScrolled {
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
-}
-
-.headerContainer {
+  background-color: #00000096; /* Default semi-transparent background */
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1280px;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
   width: 100%;
-  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background change and box-shadow */
 }
 
-.logo img {
+/* When scrolled, header's background and shadow change */
+.headerScrolled {
+  background-color: rgba(0, 0, 0, 0.9); /* Darker background after scroll */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Darker shadow when scrolling */
+}
+
+/* Logo Styling */
+.logo {
+  background-image: url("/image/logo-removebg-preview.png"); /* Your logo path */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px; /* Logo size */
   height: 50px;
-  width: auto;
-}
-
-.navList {
-  list-style: none;
   display: flex;
   align-items: center;
+}
+
+/* Desktop Navigation Links */
+.navLinks {
+  display: flex;
+  list-style: none;
   gap: 30px;
-  margin: 0;
-  padding: 0;
+  margin-right: 50px;
 }
 
-.navItem {
+.navLinks li {
   font-size: 1rem;
-  font-family: Montserrat, sans-serif;
 }
 
-.navLink {
-  color: white;
+.navLinks a {
   text-decoration: none;
-  font-size: 16px;
-  line-height: 40px;
+  color: white;
   font-weight: bold;
+  font-family: Montserrat, sans-serif;
   transition: color 0.3s ease;
 }
 
-.navLink:hover {
-  color: #3498db;
+.navLinks a:hover {
+  color: #3498db; /* Hover color */
 }
 
+/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
-  background: transparent;
-  border: none;
   cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 1100;
+  position: absolute; /* Ensure it stays in the top right corner */
+  right: 20px; /* Position it to the right */
+  top: 20px; /* Adjust top position to align with header */
 }
 
 .hamburgerIcon {
   width: 30px;
   height: 4px;
-  background-color: #fff;
+  background-color: white;
   border-radius: 5px;
 }
 
-.show {
-  display: flex !important;
-}
-
-.navbarMobile {
-  display: none;
-}
-
-.navbarMobile.show {
+/* Mobile Navbar */
+.navLinks.show {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 100%;
   left: 0;
   width: 100%;
-  background: #2c3e50;
+  background-color: #2c3e50;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.navLinks.show li {
+  margin: 10px 0;
+}
+
+.navLinks.show a {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.navLinks.show a:hover {
+  color: #3498db;
+}
+/* Mobile View Adjustments */
 @media (max-width: 768px) {
-  .navList {
-    display: none;
+  .navLinks {
+    display: none; /* Hide links by default on mobile */
   }
+
   .hamburger {
-    display: flex;
+    display: flex; /* Show hamburger icon on mobile */
+    margin-right: 40px;
   }
-  .logo img {
-    height: 40px;
+
+  .header {
+    justify-content: space-between;
+    position: fixed; /* Allow positioning of the hamburger */
+  }
+
+  .logo {
+    width: 150px;
+    height: 50px;
   }
 }
 

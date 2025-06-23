@@ -1,0 +1,180 @@
+/* Overall container styling */
+
+.Atas {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  animation: fadeInUp 1.5s ease-out; /* Optional animation */
+}
+
+.Atas h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.Atas p {
+  font-size: 1.2rem;
+  color: #777;
+  line-height: 1.6;
+  max-width: 800px; /* Limit the width */
+  margin: 0 auto; /* Center align paragraph */
+}
+
+.section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin-top: 100px;
+}
+
+.container {
+  font-family: Montserrat, sans-serif;
+  background-color: #ffffff;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  margin-top: 150px;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+/* Image Section Styling */
+.imageSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 800px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1.5s ease-out;
+}
+
+/* Info Section Styling */
+.infoSection {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.infoSection h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.infoSection p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 10px;
+  animation: fadeInUp 2s ease-out;
+}
+
+/* Team Section Styling */
+.teamSection {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.teamSection h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  animation: fadeInUp 2.5s ease-out;
+}
+
+.teamMembers {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  animation: fadeInUp 3s ease-out;
+}
+
+.member {
+  width: 250px;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.member:hover {
+  transform: translateY(-10px);
+}
+
+.member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.member h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.member p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .imageSection {
+    margin-bottom: 30px;
+  }
+
+  .teamMembers {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .member {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .infoSection h2 {
+    font-size: 1.8rem;
+  }
+
+  .infoSection p {
+    font-size: 1rem;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

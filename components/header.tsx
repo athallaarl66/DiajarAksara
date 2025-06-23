@@ -1,108 +1,71 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.css"; // Assuming your CSS is in this file
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // State for toggling mobile menu
+  const [isScrolled, setIsScrolled] = useState(false); // State to handle scroll effect
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen); // Toggle menu state
+  };
+
+  // Handle scroll event
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        // If the page is scrolled more than 50px
+        setIsScrolled(true); // Apply scrolled header style
+      } else {
+        setIsScrolled(false); // Reset header style
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll); // Clean up the event listener on component unmount
+    };
   }, []);
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-
   return (
-    <div className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
-      <div className={styles.headerContainer}>
-        {/* Logo */}
-        <Link href="/" passHref>
-          <div className={styles.logo}>
-            <Image
-              src="/image/logo-removebg-preview.png"
-              alt="Diajar Aksara Logo"
-              width={150}
-              height={50}
-              priority
-              className={styles.logoImage}
-            />
-          </div>
-        </Link>
+    <header
+      className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""} ${
+        menuOpen ? styles.showMenu : ""
+      }`}
+    >
+      {/* Logo Section */}
+      <Link href="/dashboard">
+        <div className={styles.logo}>{/* Add logo image here */}</div>
+      </Link>
 
-        {/* Hamburger Menu */}
-        <button
-          className={styles.hamburger}
-          onClick={toggleMenu}
-          aria-label="Toggle navigation"
-        >
-          <div className={styles.hamburgerIcon}></div>
-          <div className={styles.hamburgerIcon}></div>
-          <div className={styles.hamburgerIcon}></div>
-        </button>
-
-        {/* Desktop Navigation */}
-        <nav>
-          <ul className={`${styles.navList} ${menuOpen ? styles.show : ""}`}>
-            <li className={styles.navItem}>
-              <Link href="/about" className={styles.navLink}>
-                Membaca
-              </Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link href="/features" className={styles.navLink}>
-                Menulis
-              </Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link href="/pricing" className={styles.navLink}>
-                Latihan
-              </Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link href="/gallery" className={styles.navLink}>
-                Menu
-              </Link>
-            </li>
-          </ul>
-        </nav>
+      {/* Hamburger Menu for Mobile */}
+      <div className={styles.hamburger} onClick={toggleMenu}>
+        <div className={styles.hamburgerIcon}></div>
+        <div className={styles.hamburgerIcon}></div>
+        <div className={styles.hamburgerIcon}></div>
       </div>
 
-      {/* Mobile Navigation */}
-      <div className={`${styles.navbarMobile} ${menuOpen ? styles.show : ""}`}>
-        <ul className={styles.navList}>
-          <li className={styles.navItem}>
-            <Link href="/about" className={styles.navLink}>
-              About
-            </Link>
+      {/* Navigation Links */}
+      <nav>
+        <ul className={`${styles.navLinks} ${menuOpen ? styles.show : ""}`}>
+          <li>
+            <Link href="/membaca-aksara">Membaca</Link>
           </li>
-          <li className={styles.navItem}>
-            <Link href="/features" className={styles.navLink}>
-              Features
-            </Link>
+          <li>
+            <Link href="/menulis-aksara">Menulis</Link>
           </li>
-          <li className={styles.navItem}>
-            <Link href="/pricing" className={styles.navLink}>
-              Pricing
-            </Link>
+          <li>
+            <Link href="/latihan">Latihan</Link>
           </li>
-          <li className={styles.navItem}>
-            <Link href="/gallery" className={styles.navLink}>
-              Gallery
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/team" className={styles.navLink}>
-              Team
-            </Link>
+          <li>
+            <Link href="/dashboard">Menu</Link>
           </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 

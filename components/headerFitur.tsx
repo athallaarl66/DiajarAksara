@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link"; // Import Link from Next.js
 import { useState } from "react";
 import styles from "../styles/headfoot.module.css"; // Import Header CSS
@@ -28,16 +30,16 @@ const Header = () => {
       <nav>
         <ul className={`${styles.navLinks} ${menuOpen ? styles.show : ""}`}>
           <li>
-            <Link href="/about">Membaca</Link>
+            <Link href="/membaca-aksara">Membaca</Link>
           </li>
           <li>
-            <Link href="/features">Menulis</Link>
+            <Link href="/menulis-aksara">Menulis</Link>
           </li>
           <li>
-            <Link href="/pricing">Latihan</Link>
+            <Link href="/latihan">Latihan</Link>
           </li>
           <li>
-            <Link href="/gallery">Menu</Link>
+            <Link href="/dashboard">Menu</Link>
           </li>
         </ul>
       </nav>
