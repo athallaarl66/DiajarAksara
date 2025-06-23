@@ -127,7 +127,7 @@
 /* ============================= */
 
 .hero {
-  height: 100vh;
+  height: 50vh;
   background-image: url("/image/BANDUNG.jpg");
   background-size: cover;
   background-position: center;
@@ -297,6 +297,7 @@
   .heroTitle {
     font-size: 2rem;
   }
+
   .section,
   .sectionLatihan {
     flex-direction: column;

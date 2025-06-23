@@ -9,9 +9,13 @@ const MainSections = () => (
       <div className={styles.textSection}>
         <h2>Aksara Sunda</h2>
         <p>
-          Aksara Sunda is a traditional writing system used to write the
-          Sundanese language, which has evolved from Brahmi script in India and
-          was used during the Sunda Kingdom era (14th-16th century).
+          Aksara Sunda adalah sistem penulisaf tradisional yang digunakan untuk
+          menulis bahasa Sunda. Aksara ini berkembang dari aksara Brahmi India
+          dan digunakan pada masa Kerajaan Sunda (abad ke-14 hingga ke-16).
+          Setelah lama tergantikan oleh aksara Arab dan Latin, aksara Sunda
+          mulai dihidupkan kembali pada abad ke-20. Hasilnya adalah Aksara Sunda
+          Baku, versi yang disesuaikan untuk kebutuhan modern, yang kini
+          digunakan dalam pendidikan dan pelestarian budaya..
         </p>
       </div>
     </section>
@@ -22,8 +26,12 @@ const MainSections = () => (
       <div className={styles.textSection}>
         <h2>Pembelajaran Aksara</h2>
         <p>
-          Carpon (short stories in Sundanese) is used for reading practice while
-          immersing in Sundanese culture and language.
+          Aplikasi pembelajaran aksara Sunda ini dirancang untuk membantu
+          pengguna dari berbagai usia mengenal dan memahami aksara Sunda secara
+          menyeluruh. Melalui fitur membaca, pengguna dapat mempelajari bentuk
+          dan cara pelafalan aksara dengan panduan yang mudah diikuti. Fitur
+          menulis memungkinkan latihan menulis aksara secara digital, lengkap
+          dengan koreksi otomatis.
         </p>
       </div>
     </section>

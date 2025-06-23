@@ -8,7 +8,7 @@ const Footer = () => (
             <a href="/about">Tentang Kami</a>
           </h4>
           <p>
-            <a href="/about">Diajar Aksara</a>
+            <a href="/tentangKami">Diajar Aksara</a>
           </p>
         </div>
         <div>
@@ -16,13 +16,13 @@ const Footer = () => (
             <a href="/services">Layanan Kami</a>
           </h4>
           <p>
-            <a href="/read-aksara">Membaca Aksara</a>
+            <a href="/membaca-aksara">Membaca Aksara</a>
           </p>
           <p>
-            <a href="/write-aksara">Menulis Aksara</a>
+            <a href="/menulis-aksara">Menulis Aksara</a>
           </p>
           <p>
-            <a href="/learn-aksara">Latihan Aksara</a>
+            <a href="/latihan">Latihan Aksara</a>
           </p>
         </div>
       </div>

@@ -13,19 +13,19 @@ const Footer = () => {
           <div>
             <h4>Tentang Kami</h4>
             <p>
-              <Link href="/about">Diajar Aksara</Link>
+              <Link href="/tentangKami">Diajar Aksara</Link>
             </p>
           </div>
           <div>
             <h4>Layanan Kami</h4>
             <p>
-              <Link href="/read-aksara">Membaca Aksara</Link>
+              <Link href="/membaca-aksara">Membaca Aksara</Link>
             </p>
             <p>
-              <Link href="/write-aksara">Menulis Aksara</Link>
+              <Link href="/menulis-aksara">Menulis Aksara</Link>
             </p>
             <p>
-              <Link href="/learn-aksara">Latihan Aksara</Link>
+              <Link href="/latihan">Latihan Aksara</Link>
             </p>
           </div>
         </div>
