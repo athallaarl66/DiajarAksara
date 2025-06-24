@@ -42,8 +42,10 @@ const MainSections = () => (
       <div className={styles.textSectionLatihan}>
         <h2>Latihan</h2>
         <p>
-          Carpon (short stories in Sundanese) is used for reading practice while
-          immersing in Sundanese culture and language.
+          Pada platform ini, Anda dapat menikmati berbagai latihan yang
+          dirancang untuk membantu Anda menguasai aksara Sunda. Tersedia latihan
+          membaca, kuis, dan menulis untuk setiap jenis aksara, mulai dari
+          Aksara Ngalagena, Aksara Swara, hingga Aksara Angka.
         </p>
       </div>
     </section>
@@ -59,8 +61,8 @@ const MainSections = () => (
             <div className={styles.iconMembaca}></div>
             <h3>Membaca Aksara</h3>
             <p>
-              Our community has over 10,000 expert tutors – all with prior
-              teaching experience, vetted by our team.
+              Jelajahi dunia aksara Sunda dengan membaca! Temukan keindahan
+              huruf-hurufnya secara interaktif
             </p>
           </Link>
         </div>
@@ -71,8 +73,8 @@ const MainSections = () => (
             <div className={styles.iconMenulis}></div>
             <h3>Menulis Aksara</h3>
             <p>
-              With lesson prices starting at $20, we provide remote language
-              learning to fit any budget.
+              Tantang dirimu untuk menulis aksara Sunda! Tunjukkan keterampilan
+              menulismu dengan cara yang seru.
             </p>
           </Link>
         </div>
@@ -83,8 +85,8 @@ const MainSections = () => (
             <div className={styles.iconLatihan}></div>
             <h3>Latihan</h3>
             <p>
-              We make learning happen on your schedule. Book lessons whenever
-              you want to learn.
+              Pelajari dan latih aksara Sunda yang indah dengan platform
+              interaktif kami yang menyenangkan dan mudah digunakan!
             </p>
           </Link>
         </div>

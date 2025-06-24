@@ -11,82 +11,67 @@ const Quiz = () => {
 
   const questions = [
     {
-      question:
-        "Question 1: Apa nama aksara Sunda yang digunakan untuk menulis bahasa Sunda?",
-      options: ["Aksara Jawa", "Aksara Bali", "Aksara Sunda", "Aksara Bugis"],
-      correctAnswer: "Aksara Sunda",
-    },
-    {
-      question: "Question 2: Bagaimana cara membaca aksara Sunda secara umum?",
+      question: "Question 1: Apa itu Aksara Sunda Swara?",
       options: [
-        "Dari kanan ke kiri",
-        "Dari kiri ke kanan",
-        "Dari atas ke bawah",
-        "Dari bawah ke atas",
+        "Aksara yang digunakan untuk menulis vokal",
+        "Aksara yang digunakan untuk menulis konsonan",
+        "Aksara yang digunakan untuk angka",
+        "Aksara yang digunakan untuk tanda baca",
       ],
-      correctAnswer: "Dari kiri ke kanan",
+      correctAnswer: "Aksara yang digunakan untuk menulis vokal",
+    },
+    {
+      question: "Question 2: Berapa jumlah Aksara Swara dalam aksara Sunda?",
+      options: ["5", "7", "8", "10"],
+      correctAnswer: "7",
     },
     {
       question:
-        "Question 3: Apa nama aksara Sunda yang digunakan untuk menulis konsonan?",
-      options: [
-        "Hanacaraka",
-        "Aksara kawih",
-        "Aksara dasar",
-        "Aksara ngalamun",
-      ],
-      correctAnswer: "Aksara dasar",
-    },
-    {
-      question: "Question 4: Berapa jumlah dasar aksara Sunda?",
-      options: ["15", "18", "20", "23"],
-      correctAnswer: "23",
+        "Question 3: Huruf mana yang digunakan untuk menulis suara 'a' dalam Aksara Sunda?",
+      options: ["ᮃ", "ᮄ", "ᮅ", "ᮆ"],
+      correctAnswer: "ᮃ",
     },
     {
       question:
-        "Question 5: Apa nama simbol dalam aksara Sunda yang digunakan untuk menulis vokal?",
-      options: ["Tanda vokal", "Sandhi", "Tanda diakritik", "Huruf vokal"],
-      correctAnswer: "Tanda vokal",
+        "Question 4: Apa simbol yang digunakan untuk melambangkan suara 'i' dalam Aksara Sunda?",
+      options: ["ᮀ", "ᮄ", "ᮆ", "ᮇ"],
+      correctAnswer: "ᮄ",
     },
     {
       question:
-        "Question 6: Di bawah ini mana yang termasuk aksara Sunda yang digunakan untuk penulisan huruf 'Ka'?",
-      options: ["ᮊ", "ᮞ", "ᮏ", "ᮚ"],
-      correctAnswer: "ᮊ",
+        "Question 5: Huruf mana yang digunakan untuk menulis suara 'u' dalam Aksara Sunda?",
+      options: ["ᮇ", "ᮈ", "ᮉ", "ᮊ"],
+      correctAnswer: "ᮇ",
     },
     {
       question:
-        "Question 7: Simbol apa yang digunakan dalam aksara Sunda untuk menulis kata 'di' dalam bahasa Indonesia?",
-      options: ["ᮓᮤ", "ᮊᮨ", "ᮓᮈ", "ꦤ"],
-      correctAnswer: "ᮓᮤ",
+        "Question 6: Apa simbol yang digunakan untuk suara 'e' dalam Aksara Sunda?",
+      options: ["ᮏ", "ᮐ", "ᮑ", "ᮒ"],
+      correctAnswer: "ᮏ",
     },
     {
       question:
-        "Question 8: Aksara Sunda memiliki karakter yang disebut 'carakan.' Apa yang dimaksud dengan carakan?",
-      options: ["Tanda baca", "Huruf dasar", "Angka", "Vokal"],
-      correctAnswer: "Huruf dasar",
+        "Question 7: Huruf mana yang digunakan untuk menulis suara 'o' dalam Aksara Sunda?",
+      options: ["ᮒ", "ᮓ", "ᮔ", "ᮕ"],
+      correctAnswer: "ᮒ",
     },
     {
       question:
-        "Question 9: Apa fungsi dari aksara 'sandhangan' dalam aksara Sunda?",
-      options: [
-        "Untuk menulis angka",
-        "Sebagai tanda baca",
-        "Menambah atau mengubah bunyi vokal",
-        "Sebagai kata penghubung",
-      ],
-      correctAnswer: "Menambah atau mengubah bunyi vokal",
+        "Question 8: Apa simbol yang digunakan untuk menulis suara 'ai' dalam Aksara Sunda?",
+      options: ["ᮅᮃ", "ᮄᮃ", "ᮆᮏ", "ᮇᮇ"],
+      correctAnswer: "ᮅᮃ",
     },
     {
       question:
-        "Question 10: Siapa yang memperkenalkan aksara Sunda pada zaman dahulu?",
-      options: [
-        "Raja Siliwangi",
-        "Pangeran Diponegoro",
-        "Sunan Gunung Jati",
-        "Sultan Agung",
-      ],
-      correctAnswer: "Raja Siliwangi",
+        "Question 9: Aksara Sunda angka berapa yang digunakan untuk angka '1'?",
+      options: ["᮱", "᮲", "᮳", "᮴"],
+      correctAnswer: "᮱",
+    },
+    {
+      question:
+        "Question 10: Apa nama simbol dalam Aksara Sunda untuk angka '5'?",
+      options: ["᮷", "᮶", "᮵", "᮶"],
+      correctAnswer: "᮷",
     },
   ];
 
@@ -167,7 +152,7 @@ const Quiz = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>Diajar - Quiz</h1>
+        <h1>Kuis - Baca Aksara</h1>
       </div>
 
       {!isStarted ? (

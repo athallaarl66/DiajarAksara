@@ -19,10 +19,7 @@ const Home = () => {
           <div className={styles.heroBackground}></div>
           <div className={styles.heroOverlay}>
             <h1 className={styles.heroTitle}>Diajar Aksara (ᮓᮤᮏᮁᮃᮊ᮪ᮞᮛ)</h1>
-            <p className={styles.heroDesc}>
-              Learn and practice the beautiful Sundanese script with our
-              interactive platform.
-            </p>
+            <p className={styles.heroDesc}></p>
           </div>
         </section>
 

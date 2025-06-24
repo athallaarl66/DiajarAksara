@@ -99,43 +99,39 @@
 }
 
 .pamingkal {
-  background-image: url("/path-to-image/pamingkal.jpg");
+  background-image: url("../public/image/pamingkal.png");
 }
 
 .pamepet {
-  background-image: url("/path-to-image/pamepet.jpg");
+  background-image: url("../public/image/pamepet.png");
 }
 
 .paneuleung {
-  background-image: url("/path-to-image/paneuleung.jpg");
-}
-
-.panwisad2 {
-  background-image: url("/path-to-image/panwisad2.jpg");
+  background-image: url("../public/image/paneulung.png");
 }
 
 .pangwisad {
-  background-image: url("/path-to-image/pangwisad.jpg");
+  background-image: url("../public/image/pangwisad.png");
 }
 
 .panglayar {
-  background-image: url("/path-to-image/panglayar.jpg");
+  background-image: url("../public/image/Panglayar.png");
 }
 
 .pamaeh {
-  background-image: url("/path-to-image/pamaeh.jpg");
-}
-
-.panlayar2 {
-  background-image: url("/path-to-image/panlayar2.jpg");
-}
-
-.panleung {
-  background-image: url("/path-to-image/panleung.jpg");
+  background-image: url("../public/image/k.png");
 }
 
 .panyuku {
-  background-image: url("/path-to-image/panyuku.jpg");
+  background-image: url("../public/image/Panyuku.png");
+}
+
+.panyiku {
+  background-image: url("../public/image/Panyiku.png");
+}
+
+.panyakra {
+  background-image: url("../public/image/Panyakra.png");
 }
 
 /* Label Styling */
@@ -156,7 +152,7 @@
 
 /* Hover Effect for Cards */
 .card:hover {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   transform: translateY(-5px); /* Slight lift on hover */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
 }
@@ -280,7 +276,7 @@
   border-radius: 10px;
   width: 60%;
   max-width: 500px;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 

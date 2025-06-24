@@ -5,15 +5,72 @@ import Footer from "../components/footerFitur";
 import styles from "../styles/latihanRarangken.module.css";
 
 const aksaraData = [
-  { label: "Panéléng", imageClass: "panéléng", sound: "/é/" },
-  { label: "Panghulu", imageClass: "panghulu", sound: "/i/" },
-  { label: "Panyecek", imageClass: "panyecek", sound: "/ng/" },
-  { label: "Panolong", imageClass: "panolong", sound: "/o/" },
-  { label: "Panlong", imageClass: "panlong", sound: "/o/" },
-  { label: "Panwisad", imageClass: "panwisad", sound: "/h/" },
-  { label: "Pamingkal", imageClass: "pamingkal", sound: "/y/" },
-  { label: "Pamepet", imageClass: "pamepet", sound: "/e/" },
-  { label: "Paneuleung", imageClass: "paneuleung", sound: "/eu/" },
+  {
+    label: "Panéléng",
+    imageClass: "panéléng",
+    sound: "Merubah suara /a/ pada aksara ngalagena menjadi /é/",
+  },
+  {
+    label: "Panghulu",
+    imageClass: "panghulu",
+    sound: "Merubah suara /a/ pada aksara ngalagena menjadi /i/",
+  },
+  {
+    label: "Panyecek",
+    imageClass: "panyecek",
+    sound: "Menambahkan suara /ng/ pada akhir kata dari aksara ngalagena",
+  },
+  {
+    label: "Panolong",
+    imageClass: "panolong",
+    sound: " Merubah suara /a/ pada aksara ngalagena menjadi /o/ ",
+  },
+  {
+    label: "Pamaeh",
+    imageClass: "pamaeh",
+    sound: " Menghilangkan suara /a/ dari aksara ngalagena ",
+  },
+  {
+    label: "Pangwisad",
+    imageClass: "pangwisad",
+    sound: " Menambahkan suara /h/ pada akhir kata dari aksara ngalagena",
+  },
+  {
+    label: "Pamingkal",
+    imageClass: "pamingkal",
+    sound: " Menambahkan suara /y/ di tengah aksara ngalagena",
+  },
+  {
+    label: "Pamepet",
+    imageClass: "pamepet",
+    sound: "Merubah suara /a/ pada aksara ngalagena menjadi /e/ ",
+  },
+  {
+    label: "Paneuleung",
+    imageClass: "paneuleung",
+    sound: "merubah suara /a/ menjadi /eu/",
+  },
+  {
+    label: "Panyuku",
+    imageClass: "panyuku",
+    sound: "Merubah suara /a/ pada aksara ngalagena menjadi /u/ ",
+  },
+  {
+    label: "Panyiku",
+    imageClass: "panyiku",
+    sound: " Menambahkan  /i/ pada tengah aksara ngalagena",
+  },
+  {
+    label: "Panglayar",
+    imageClass: "panglayar",
+    sound:
+      " Menambahkan suara  suara /r/ pada akhir kata dari aksara ngalagena",
+  },
+  {
+    label: "Panyakra",
+    imageClass: "panyakra",
+    sound: "  Merubah suara /a/ pada aksara ngalagena menjadi /u/ ",
+  },
 ];
 
 const ColorWindow = () => {

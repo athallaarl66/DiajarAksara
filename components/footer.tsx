@@ -10,7 +10,7 @@ const Footer = () => (
             <a href="/about">Tentang Kami</a>
           </h4>
           <p>
-            <Link href="/membaca-aksara">Membaca Aksara</Link>
+            <Link href="/tentangKami">Diajar Aksara</Link>
           </p>
         </div>
         <div>

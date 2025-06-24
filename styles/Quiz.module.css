@@ -8,47 +8,133 @@
   min-height: 100vh;
   padding: 20px;
   background-color: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-/* Question Box styling */
+/* Header Styling */
+.header {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.header:hover {
+  transform: scale(1.05);
+}
+
+/* Name Input Box Styling */
+.nameInputBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  animation: fadeIn 0.5s ease-out;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for the input box */
+.nameInputBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Styling */
+.nameInput {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Focus effect on input */
+.nameInput:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* Start Button Styling */
+.startButton {
+  padding: 12px 30px;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+}
+
+/* Hover effect for the start button */
+.startButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Question Box styling */
 .questionBox {
   position: fixed;
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
-  padding: 15px;
-  background-color: #f4f4f4;
+  padding: 20px;
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  width: 120px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  width: 130px;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
-.questionList {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
+/* Hover Effect on Question Numbers */
 .questionNumber {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-color: #ddd;
   text-align: center;
-  line-height: 30px;
+  line-height: 40px;
   border-radius: 50%;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .questionNumber:hover {
   background-color: #3498db;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .questionNumber.active {
@@ -56,9 +142,7 @@
   color: white;
 }
 
-/* Rest of your CSS code */
-
-/* Quiz Box */
+/* Quiz Box Styling */
 .quizBox {
   margin-top: 50px;
   max-width: 600px;
@@ -67,10 +151,11 @@
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
 }
 
 .quizBox h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 20px;
   color: #333;
 }
@@ -81,12 +166,13 @@
 
 .option {
   display: block;
-  padding: 10px;
+  padding: 12px;
   margin: 8px 0;
   background-color: #f9f9f9;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1rem;
 }
 
 .option:hover {
@@ -98,10 +184,11 @@
 .navButtons {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 .navButton {
-  padding: 10px 20px;
+  padding: 12px 25px;
   background-color: #3498db;
   color: white;
   border: none;
@@ -109,6 +196,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 48%;
+  font-size: 1rem;
 }
 
 .navButton:hover {
@@ -128,6 +216,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .resultBox h2 {
@@ -138,6 +227,32 @@
 .resultBox p {
   font-size: 1.5rem;
   color: #555;
+}
+
+.resultButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navButton {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: #2980b9;
+}
+
+.navButton:disabled {
+  background-color: #b5b5b5;
+  cursor: not-allowed;
 }
 
 /* Footer */
@@ -152,7 +267,11 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  /* Adjusting the layout of the quiz */
+  .header {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
   .quizBox {
     padding: 15px;
     margin-top: 20px;
@@ -160,7 +279,8 @@
   }
 
   .questionBox {
-    width: 1000px;
+    width: 100%;
+    position: fixed;
     top: 20px;
     right: 20px;
     transform: translateY(0);
@@ -172,9 +292,9 @@
   }
 
   .questionNumber {
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
   }
 
   .navButtons {
@@ -196,12 +316,23 @@
     padding-top: 15px;
   }
 
-  /* Move question box below when on mobile */
   .questionBox {
     position: relative;
     top: auto;
     right: auto;
     transform: none;
     margin-top: 20px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

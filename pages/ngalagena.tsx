@@ -12,12 +12,14 @@ const NgalagenaPage = () => (
       <div className={styles.textSection}>
         <h2>Aksara Ngalagena</h2>
         <p>
-          Aksara Ngalagena is a set of symbols in the Sundanese script that
-          represent consonants and vowels. Each symbol represents a syllable
-          with the vowel /a/. In the Sundanese language, the hierarchy of the
-          language is based on the situation and relationship between the
-          speakers. Ngalagena is typically used to write Sundanese at the level
-          of &quot;lemes&quot; (soft) or &quot;lemes pisan&quot; (very soft).
+          Aksara Ngalagena adalah lambang-lambang bunyi dalam aksara Sunda yang
+          mewakili fonem konsonan dan secara silabis mengandung bunyi vokal /a/.
+          Dengan kata lain, setiap aksara ngalagena secara dasar mewakili satu
+          suku kata, yaitu konsonan + vokal /a/. Dalam bahasa Sunda, terdapat
+          tingkatan bahasa yang disebut undak usuk basa, yaitu sistem hierarki
+          bahasa berdasarkan situasi dan hubungan antar penutur. Biasanya aksara
+          ngalegna digunakan untuk menuliskan bahasa Sunda pada tingkatan lemes
+          (halus) atau lemes pisan (sangat halus)
         </p>
       </div>
     </section>
@@ -128,27 +130,6 @@ const NgalagenaPage = () => (
           <span className={styles.character}>ᮏ</span>{" "}
           {/* Example: Aksara symbol */}
         </div>
-
-        <div className={styles.tableItem}>
-          <span>Le</span>
-          <span className={styles.character}>ᮜ</span>{" "}
-          {/* Example: Aksara symbol */}
-        </div>
-        <div className={styles.tableItem}>
-          <span>Leu</span>
-          <span className={styles.character}>ᮜᮥ</span>{" "}
-          {/* Example: Aksara symbol */}
-        </div>
-        <div className={styles.tableItem}>
-          <span>Re/Reu</span>
-          <span className={styles.character}>ᮛᮥ</span>{" "}
-          {/* Example: Aksara symbol */}
-        </div>
-        <div className={styles.tableItem}>
-          <span>Tra</span>
-          <span className={styles.character}>ᮒᮛ</span>{" "}
-          {/* Example: Aksara symbol */}
-        </div>
       </div>
     </section>
     {/* Aksara Khusus Section */}
@@ -156,9 +137,9 @@ const NgalagenaPage = () => (
       <div className={styles.textSection}>
         <h2>Aksara Khusus</h2>
         <p>
-          Aksara Khusus does not belong to the Ngalagena set because it does not
-          contain the vowel /a/ and cannot be given a vocalization range. These
-          characters are independent and used in certain contexts.
+          aksara khusus ini tidak termasuk kelompok aksara ngalagena karena
+          tidak mengandung vokal /a/ dan tidak bisa diberi rarangken vokalisasi.
+          Aksara ini bersifat mandiri dan digunakan dalam konteks tertentu.
         </p>
       </div>
 
@@ -166,19 +147,19 @@ const NgalagenaPage = () => (
         {/* Characters for Aksara Khusus */}
         <div className={styles.tableItem}>
           <span>Le</span>
-          <span className={styles.character}>77</span>
+          <span className={styles.character}>ᮜᮨ</span>
         </div>
         <div className={styles.tableItem}>
           <span>Leu</span>
-          <span className={styles.character}>77</span>
+          <span className={styles.character}>ᮜᮩ</span>
         </div>
         <div className={styles.tableItem}>
           <span>Re/Reu</span>
-          <span className={styles.character}>77</span>
+          <span className={styles.character}>ᮛᮨ</span>
         </div>
         <div className={styles.tableItem}>
           <span>Tra</span>
-          <span className={styles.character}>77</span>
+          <span className={styles.character}>ᮒᮢ</span>
         </div>
       </div>
     </section>

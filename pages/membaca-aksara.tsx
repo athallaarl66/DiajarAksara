@@ -15,11 +15,11 @@ const MembacaAksaraPage = () => {
       <section className={styles.atas}>
         <div className={styles.imageSection}></div>
         <div className={styles.textSection}>
-          <h2>Understanding Aksara Sunda</h2>
+          <h2>Membaca Aksara </h2>
           <p>
-            Aksara Sunda is a traditional writing system used to write the
-            Sundanese language, evolved from the Brahmi script in India and used
-            during the Sunda Kingdom era (14th-16th century).
+            Dengan latihan yang konsisten, Anda akan dapat membaca teks-teks
+            Aksara Sunda dengan lancar dan menyenankan, memperkaya pengetahuan
+            dan keterampilan literasi Anda.
           </p>
         </div>
       </section>
@@ -32,8 +32,8 @@ const MembacaAksaraPage = () => {
           </Link>
           <h3>Aksara ngalegna</h3>
           <p>
-            Practice sheets are customized based on a child’s learning
-            progress...
+            Pelajari huruf dasar dalam aksara Sunda dan kuasai cara menulis
+            konsonan dengan latihan interaktif
           </p>
         </div>
         <div className={styles.infoItem}>
@@ -42,8 +42,8 @@ const MembacaAksaraPage = () => {
           </Link>
           <h3>Rarangkén</h3>
           <p>
-            Practice sheets are customized based on a child’s learning
-            progress...
+            Latihan menulis rangkaian aksara Sunda dengan kombinasi vokal dan
+            konsonan, membantumu membangun keterampilan membaca dan menulis
           </p>
         </div>
         <div className={styles.infoItem}>
@@ -52,8 +52,8 @@ const MembacaAksaraPage = () => {
           </Link>
           <h3>Aksara Swara</h3>
           <p>
-            Practice sheets are customized based on a child’s learning
-            progress...
+            Berlatih dengan aksara suara! Pahami cara menulis vokal dalam aksara
+            Sunda melalui latihan yang menyenangkan
           </p>
         </div>
         <div className={styles.infoItem}>
@@ -62,8 +62,8 @@ const MembacaAksaraPage = () => {
           </Link>
           <h3>Angka</h3>
           <p>
-            Practice sheets are customized based on a child’s learning
-            progress...
+            Kenali dan latih penulisan angka dalam aksara Sunda. Mempelajari
+            angka akan memperkaya kemampuan menulis aksara Sunda
           </p>
         </div>
         <div className={styles.infoItem}>
@@ -72,8 +72,9 @@ const MembacaAksaraPage = () => {
           </Link>
           <h3>Latihan</h3>
           <p>
-            Practice sheets are customized based on a child’s learning
-            progress...
+            Mulailah latihan dengan berbagai jenis aksara Sunda! Sesuaikan
+            latihan dengan kemajuan belajarmu untuk pengalaman belajar yang
+            optimal.
           </p>
         </div>
       </section>

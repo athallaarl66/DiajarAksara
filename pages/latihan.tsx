@@ -26,7 +26,7 @@ export default function LatihanPage() {
         <div className={styles.featureGrid}>
           {/* Latihan Rangken */}
           <div className={styles.featureItem}>
-            <Link href="/kuisAksara">
+            <Link href="/menulis-aksara">
               <div className={styles.iconMenulis}></div>
               <h3>Latihan Menulis</h3>
               <p>
@@ -38,7 +38,7 @@ export default function LatihanPage() {
 
           {/* Latihan Menulis rarangken */}
           <div className={styles.featureItem}>
-            <Link href="/kuisAksara">
+            <Link href="/kuisRarangken">
               <div className={styles.iconRangken}></div>
               <h3>Latihan Rarangken</h3>
               <p>
@@ -50,7 +50,7 @@ export default function LatihanPage() {
 
           {/* Latihan Aksara Swara dan Angka */}
           <div className={styles.featureItem}>
-            <Link href="/kuisAksara">
+            <Link href="/KuisSwara-angka">
               <div className={styles.iconSwaraAngka}></div>
               <h3>Latihan Aksara Swara Dan Angka</h3>
               <p>
@@ -74,7 +74,7 @@ export default function LatihanPage() {
 
           {/* Latihan Membaca Aksara */}
           <div className={styles.featureItem}>
-            <Link href="/kuisAksara">
+            <Link href="/kuisMembacaAksara">
               <div className={styles.iconMembaca}></div>
               <h3>Latihan Membaca Aksara</h3>
               <p>
@@ -86,7 +86,7 @@ export default function LatihanPage() {
 
           {/* Latihan Aksara Ngalagena */}
           <div className={styles.featureItem}>
-            <Link href="/kuisAksara">
+            <Link href="/KuisNgalagena">
               <div className={styles.iconAksaraNgalagena}></div>
               <h3>Latihan Aksara Ngalagena</h3>
               <p>Latihan untuk memahami aksara ngalagena dalam aksara Sunda.</p>

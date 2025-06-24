@@ -11,82 +11,63 @@ const Quiz = () => {
 
   const questions = [
     {
-      question:
-        "Question 1: Apa nama aksara Sunda yang digunakan untuk menulis bahasa Sunda?",
-      options: ["Aksara Jawa", "Aksara Bali", "Aksara Sunda", "Aksara Bugis"],
-      correctAnswer: "Aksara Sunda",
-    },
-    {
-      question: "Question 2: Bagaimana cara membaca aksara Sunda secara umum?",
-      options: [
-        "Dari kanan ke kiri",
-        "Dari kiri ke kanan",
-        "Dari atas ke bawah",
-        "Dari bawah ke atas",
-      ],
-      correctAnswer: "Dari kiri ke kanan",
+      question: "Apa itu Aksara Ngalagena dalam aksara Sunda?",
+      options: ["Huruf vokal", "Huruf konsonan", "Tanda baca", "Huruf angka"],
+      correctAnswer: "Huruf konsonan",
     },
     {
       question:
-        "Question 3: Apa nama aksara Sunda yang digunakan untuk menulis konsonan?",
-      options: [
-        "Hanacaraka",
-        "Aksara kawih",
-        "Aksara dasar",
-        "Aksara ngalamun",
-      ],
-      correctAnswer: "Aksara dasar",
-    },
-    {
-      question: "Question 4: Berapa jumlah dasar aksara Sunda?",
-      options: ["15", "18", "20", "23"],
-      correctAnswer: "23",
+        "Berapa jumlah huruf dasar (Aksara Ngalagena) dalam aksara Sunda?",
+      options: ["12", "15", "18", "23"],
+      correctAnswer: "18",
     },
     {
       question:
-        "Question 5: Apa nama simbol dalam aksara Sunda yang digunakan untuk menulis vokal?",
-      options: ["Tanda vokal", "Sandhi", "Tanda diakritik", "Huruf vokal"],
-      correctAnswer: "Tanda vokal",
-    },
-    {
-      question:
-        "Question 6: Di bawah ini mana yang termasuk aksara Sunda yang digunakan untuk penulisan huruf 'Ka'?",
-      options: ["ᮊ", "ᮞ", "ᮏ", "ᮚ"],
+        "Huruf mana dalam Aksara Ngalagena yang digunakan untuk melambangkan suara 'ka'?",
+      options: ["ᮌ", "ᮊ", "ᮎ", "ᮕ"],
       correctAnswer: "ᮊ",
     },
     {
       question:
-        "Question 7: Simbol apa yang digunakan dalam aksara Sunda untuk menulis kata 'di' dalam bahasa Indonesia?",
-      options: ["ᮓᮤ", "ᮊᮨ", "ᮓᮈ", "ꦤ"],
-      correctAnswer: "ᮓᮤ",
+        "Apa nama huruf dalam Aksara Ngalagena yang digunakan untuk melambangkan suara 'sa'?",
+      options: ["ᮞ", "ᮠ", "ᮊ", "ᮕ"],
+      correctAnswer: "ᮞ",
     },
     {
       question:
-        "Question 8: Aksara Sunda memiliki karakter yang disebut 'carakan.' Apa yang dimaksud dengan carakan?",
-      options: ["Tanda baca", "Huruf dasar", "Angka", "Vokal"],
-      correctAnswer: "Huruf dasar",
+        "Dalam Aksara Ngalagena, huruf mana yang digunakan untuk menuliskan suara 'ba'?",
+      options: ["ꦧ", "ꦕ", "ꦏ", "꦳"],
+      correctAnswer: "ꦧ",
     },
     {
       question:
-        "Question 9: Apa fungsi dari aksara 'sandhangan' dalam aksara Sunda?",
-      options: [
-        "Untuk menulis angka",
-        "Sebagai tanda baca",
-        "Menambah atau mengubah bunyi vokal",
-        "Sebagai kata penghubung",
-      ],
-      correctAnswer: "Menambah atau mengubah bunyi vokal",
+        "Huruf mana dalam Aksara Ngalagena yang digunakan untuk menuliskan suara 'ga'?",
+      options: ["ᮒ", "ᮠ", "ᮌ", "ᮚ"],
+      correctAnswer: "ᮌ",
     },
     {
       question:
-        "Question 10: Siapa yang memperkenalkan aksara Sunda pada zaman dahulu?",
-      options: [
-        "Raja Siliwangi",
-        "Pangeran Diponegoro",
-        "Sunan Gunung Jati",
-        "Sultan Agung",
-      ],
-      correctAnswer: "Raja Siliwangi",
+        "Apa nama huruf dalam Aksara Ngalagena yang digunakan untuk melambangkan suara 'na'?",
+      options: ["ᮚ", "ᮒᮢ", "ᮔ", "ᮙ"],
+      correctAnswer: "ᮔ",
+    },
+    {
+      question:
+        "Di antara huruf-huruf berikut, mana yang termasuk Aksara Ngalagena?",
+      options: ["᮱", "᮶", "ᮑ", "Semua di atas"],
+      correctAnswer: "ᮑ",
+    },
+    {
+      question:
+        "Huruf mana yang digunakan untuk melambangkan suara 'pa' dalam Aksara Ngalagena?",
+      options: ["ᮕ", "ᮑ", "ꦧ", "᮱"],
+      correctAnswer: "ᮕ",
+    },
+    {
+      question:
+        "Apa yang dimaksud dengan 'carakan' dalam konteks Aksara Sunda?",
+      options: ["Huruf vokal", "Rangkaian dasar aksara", "Tanda baca", "Angka"],
+      correctAnswer: "Rangkaian dasar aksara",
     },
   ];
 
@@ -167,7 +148,7 @@ const Quiz = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>Diajar - Quiz</h1>
+        <h1>Kuis - Ngalagena</h1>
       </div>
 
       {!isStarted ? (

@@ -1,168 +1,111 @@
-/* Overall container styling */
-
-.Atas {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  text-align: center;
-  animation: fadeInUp 1.5s ease-out; /* Optional animation */
-}
-
-.Atas h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.Atas p {
-  font-size: 1.2rem;
-  color: #777;
-  line-height: 1.6;
-  max-width: 800px; /* Limit the width */
-  margin: 0 auto; /* Center align paragraph */
-}
-
-.section {
-  padding: 80px 20px;
-  max-width: 1000px;
-  margin-top: 100px;
-}
-
+/* General Layout and Body */
 .container {
-  font-family: Montserrat, sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: #ffffff;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  margin-top: 150px;
 }
 
 .fadeIn {
   opacity: 1;
 }
 
-/* Image Section Styling */
-.imageSection {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-  animation: fadeInUp 1s ease-out;
-}
-
-.imageContainer {
-  width: 100%;
-  max-width: 800px;
-}
-
-.image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  animation: fadeInUp 1.5s ease-out;
-}
-
-/* Info Section Styling */
+/* Web App Pembelajaran Section */
 .infoSection {
   text-align: center;
-  margin-bottom: 40px;
-}
-
-.infoSection h2 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.infoSection p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 10px;
+  margin-bottom: 60px;
   animation: fadeInUp 2s ease-out;
 }
 
-/* Team Section Styling */
-.teamSection {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.teamSection h2 {
-  font-size: 2.5rem;
+.infoSection h2 {
+  font-size: 3rem;
   color: #333;
   margin-bottom: 20px;
-  animation: fadeInUp 2.5s ease-out;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 150px;
+  max-width: 1000px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.teamMembers {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+.infoSection p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+  text-align: justify;
+}
+
+.infoSection ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.infoSection li {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.infoSection li strong {
+  color: #4caf50;
+}
+
+.infoContent {
+  margin-top: 30px;
   animation: fadeInUp 3s ease-out;
 }
 
-.member {
-  width: 250px;
+/* About Us Section */
+
+/* About Us Section */
+.aboutSection {
   text-align: center;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  margin-top: 60px;
+  animation: fadeInUp 2s ease-out;
 }
 
-.member:hover {
-  transform: translateY(-10px);
-}
-
-.member img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-}
-
-.member h3 {
-  font-size: 1.5rem;
+.sectionTitle {
+  font-size: 3.5rem;
   color: #333;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
-.member p {
-  font-size: 1.1rem;
-  color: #555;
+.description {
+  font-size: 1.3rem;
+  color: #777;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  line-height: 2.8;
+  animation: fadeInUp 3s ease-out;
 }
 
-/* Responsive Design */
+/* For smaller screen sizes, adjust font sizes */
 @media (max-width: 768px) {
-  .container {
-    padding: 10px;
+  .sectionTitle {
+    font-size: 2.5rem;
   }
 
-  .imageSection {
-    margin-bottom: 30px;
+  .description {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 2rem;
   }
 
-  .teamMembers {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .member {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-
-  .infoSection h2 {
-    font-size: 1.8rem;
-  }
-
-  .infoSection p {
+  .description {
     font-size: 1rem;
   }
 }
@@ -176,5 +119,260 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.Atas {
+  text-align: center;
+  margin-top: 60px;
+  animation: fadeInUp 2s ease-out;
+}
+
+.Atas h1 {
+  font-size: 3.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.Atas p {
+  font-size: 1.3rem;
+  color: #777;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  line-height: 2.8;
+  animation: fadeInUp 3s ease-out;
+}
+
+/* Contact Us Section */
+.contactSection {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.contactSection h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contactSection p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Contact Info Styling */
+.contactInfo {
+  font-size: 1rem;
+  color: #777;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.contactInfo a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.contactInfo a:hover {
+  text-decoration: underline;
+}
+
+.contactInfo p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.contactInfo a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.contactInfo a:hover {
+  text-decoration: underline;
+}
+
+/* Email Icon */
+.contactInfo .emailIcon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../public/image/icons8-email-50.png"); /* Path to your email icon */
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+  vertical-align: middle; /* Align the icon with the text */
+}
+
+/* GitHub Icon */
+.contactInfo .githubIcon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../public/image/icons8-github-30.png"); /* Path to your GitHub icon */
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+  vertical-align: middle; /* Align the icon with the text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactSection h2 {
+    font-size: 2rem;
+  }
+
+  .contactSection p {
+    font-size: 1rem;
+  }
+
+  .contactInfo {
+    font-size: 1rem;
+  }
+}
+
+/* Button Styling */
+.button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #388e3c;
+}
+
+.button:active {
+  background-color: #2c6b2f;
+}
+
+/* What We Do Section */
+.infoSection h2 {
+  font-size: 2.8rem;
+  color: #333;
+  margin-bottom: 20px;
+  animation: fadeInUp 2.5s ease-out;
+}
+
+/* Image Section */
+.infoSection img,
+.Atas img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.infoSection img:hover,
+.Atas img:hover {
+  transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .infoSection h2 {
+    font-size: 2.5rem;
+  }
+
+  .infoSection p {
+    font-size: 1.1rem;
+  }
+
+  .infoSection ul {
+    padding-left: 20px;
+  }
+
+  .infoSection li {
+    font-size: 1rem;
+  }
+
+  .Atas h1 {
+    font-size: 2.8rem;
+  }
+
+  .Atas p {
+    font-size: 1.2rem;
+  }
+
+  .infoSection {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoSection h2 {
+    font-size: 2rem;
+  }
+
+  .infoSection p {
+    font-size: 1rem;
+  }
+
+  .Atas h1 {
+    font-size: 2.5rem;
+  }
+
+  .Atas p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .infoSection {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoSection h2 {
+    font-size: 1.8rem;
+  }
+
+  .infoSection p {
+    font-size: 0.95rem;
+  }
+
+  .Atas h1 {
+    font-size: 2rem;
+  }
+
+  .Atas p {
+    font-size: 0.95rem;
+  }
+
+  .infoSection img {
+    max-width: 90%;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for smooth scroll and transition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

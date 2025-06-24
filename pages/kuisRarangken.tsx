@@ -11,82 +11,87 @@ const Quiz = () => {
 
   const questions = [
     {
-      question:
-        "Question 1: Apa nama aksara Sunda yang digunakan untuk menulis bahasa Sunda?",
-      options: ["Aksara Jawa", "Aksara Bali", "Aksara Sunda", "Aksara Bugis"],
-      correctAnswer: "Aksara Sunda",
-    },
-    {
-      question: "Question 2: Bagaimana cara membaca aksara Sunda secara umum?",
+      question: "Apa yang dimaksud dengan Rarangken dalam aksara Sunda?",
       options: [
-        "Dari kanan ke kiri",
-        "Dari kiri ke kanan",
-        "Dari atas ke bawah",
-        "Dari bawah ke atas",
+        "Tanda baca",
+        "Huruf vokal",
+        "Simbol penghubung",
+        "Huruf yang digunakan untuk menulis konsonan",
       ],
-      correctAnswer: "Dari kiri ke kanan",
+      correctAnswer: "Simbol penghubung",
     },
     {
       question:
-        "Question 3: Apa nama aksara Sunda yang digunakan untuk menulis konsonan?",
+        "Huruf mana yang digunakan untuk menulis Rarangken 'ka' dalam aksara Sunda?",
+      options: ["᮪", "ᮌ", "ᮊ", "ᮔ"],
+      correctAnswer: "ᮌ",
+    },
+    {
+      question: "Bagaimana cara menggunakan Rarangken dalam aksara Sunda?",
       options: [
-        "Hanacaraka",
-        "Aksara kawih",
-        "Aksara dasar",
-        "Aksara ngalamun",
+        "Ditempatkan setelah vokal",
+        "Ditempatkan setelah konsonan",
+        "Ditempatkan di atas vokal",
+        "Ditempatkan di bawah konsonan",
       ],
-      correctAnswer: "Aksara dasar",
-    },
-    {
-      question: "Question 4: Berapa jumlah dasar aksara Sunda?",
-      options: ["15", "18", "20", "23"],
-      correctAnswer: "23",
+      correctAnswer: "Ditempatkan setelah konsonan",
     },
     {
       question:
-        "Question 5: Apa nama simbol dalam aksara Sunda yang digunakan untuk menulis vokal?",
-      options: ["Tanda vokal", "Sandhi", "Tanda diakritik", "Huruf vokal"],
-      correctAnswer: "Tanda vokal",
-    },
-    {
-      question:
-        "Question 6: Di bawah ini mana yang termasuk aksara Sunda yang digunakan untuk penulisan huruf 'Ka'?",
-      options: ["ᮊ", "ᮞ", "ᮏ", "ᮚ"],
-      correctAnswer: "ᮊ",
-    },
-    {
-      question:
-        "Question 7: Simbol apa yang digunakan dalam aksara Sunda untuk menulis kata 'di' dalam bahasa Indonesia?",
-      options: ["ᮓᮤ", "ᮊᮨ", "ᮓᮈ", "ꦤ"],
-      correctAnswer: "ᮓᮤ",
-    },
-    {
-      question:
-        "Question 8: Aksara Sunda memiliki karakter yang disebut 'carakan.' Apa yang dimaksud dengan carakan?",
-      options: ["Tanda baca", "Huruf dasar", "Angka", "Vokal"],
-      correctAnswer: "Huruf dasar",
-    },
-    {
-      question:
-        "Question 9: Apa fungsi dari aksara 'sandhangan' dalam aksara Sunda?",
+        "Rarangken digunakan untuk menyambungkan huruf vokal dengan huruf konsonan pada aksara Sunda. Apa manfaat utama dari Rarangken?",
       options: [
-        "Untuk menulis angka",
-        "Sebagai tanda baca",
-        "Menambah atau mengubah bunyi vokal",
-        "Sebagai kata penghubung",
+        "Mengganti huruf vokal",
+        "Membentuk konsonan baru",
+        "Mengubah bunyi konsonan",
+        "Memudahkan penulisan vokal setelah konsonan",
       ],
-      correctAnswer: "Menambah atau mengubah bunyi vokal",
+      correctAnswer: "Memudahkan penulisan vokal setelah konsonan",
     },
     {
       question:
-        "Question 10: Siapa yang memperkenalkan aksara Sunda pada zaman dahulu?",
+        "Apa simbol Rarangken yang digunakan untuk suara 'sa' dalam aksara Sunda?",
+      options: ["ᮞ", "ᮤ", "ᮯ", "ᮠ"],
+      correctAnswer: "ᮞ",
+    },
+    {
+      question:
+        "Rarangken mana yang digunakan untuk menghubungkan suara 'ta' dengan vokal 'i' dalam aksara Sunda?",
+      options: ["᮱", "᮳", "᮷", "ᮦ"],
+      correctAnswer: "᮳",
+    },
+    {
+      question:
+        "Apa yang terjadi jika Rarangken tidak digunakan pada aksara Sunda?",
       options: [
-        "Raja Siliwangi",
-        "Pangeran Diponegoro",
-        "Sunan Gunung Jati",
-        "Sultan Agung",
+        "Kata menjadi tidak lengkap",
+        "Tidak ada perubahan dalam penulisan",
+        "Tanda baca menjadi tidak jelas",
+        "Huruf menjadi kabur",
       ],
-      correctAnswer: "Raja Siliwangi",
+      correctAnswer: "Kata menjadi tidak lengkap",
+    },
+    {
+      question:
+        "Simbol Rarangken yang digunakan untuk menyambungkan suara 'da' dengan vokal 'a' dalam aksara Sunda adalah?",
+      options: ["ᮕ", "ᮙ", "ᮗ", "ᮖ"],
+      correctAnswer: "ᮗ",
+    },
+    {
+      question:
+        "Manakah yang termasuk dalam penggunaan Rarangken yang benar dalam aksara Sunda?",
+      options: [
+        "Menyambungkan dua vokal tanpa konsonan",
+        "Menyambungkan konsonan dengan vokal setelahnya",
+        "Mengubah makna kata",
+        "Mengganti huruf dasar",
+      ],
+      correctAnswer: "Menyambungkan konsonan dengan vokal setelahnya",
+    },
+    {
+      question:
+        "Apa nama Rarangken yang digunakan untuk menyambungkan suara 'pa' dengan vokal 'u' dalam aksara Sunda?",
+      options: ["ᮯ", "᮷", "᮸", "ᮠ"],
+      correctAnswer: "᮷",
     },
   ];
 
@@ -167,7 +172,7 @@ const Quiz = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>Diajar - Quiz</h1>
+        <h1>Kuis - Rarangken</h1>
       </div>
 
       {!isStarted ? (

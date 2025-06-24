@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import Header from "../components/headerFitur"; // Import the Header component
 import Footer from "../components/footerFitur"; // Import the Footer component
-import Image from "next/image"; // Import Image from Next.js
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>;
 import styles from "../styles/AboutUs.module.css"; // Import CSS for About Us page
 
 const AboutUs = () => {
@@ -17,81 +20,61 @@ const AboutUs = () => {
       {/* Header Component */}
       <Header />
 
-      {/* About Us Section */}
-      <section className={styles.Atas}>
-        <h1>About Us</h1>
-        <p>
-          Discover more about our mission, vision, and the team behind the web
-          app.
-        </p>
-      </section>
+      {/* Web App Pembelajaran Section */}
+      <section className={styles.infoSection}>
+        <h2 className={styles.sectionTitle}>
+          Selamat Datang di Aplikasi Pembelajaran Kami
+        </h2>
+        <div className={styles.infoContent}>
+          <p>
+            Aplikasi ini dirancang untuk memberikan pengalaman pembelajaran yang
+            interaktif dan efektif bagi semua pengguna. Dengan fitur-fitur
+            inovatif, aplikasi ini memungkinkan pengguna untuk belajar dengan
+            cara yang menyenangkan dan mudah diakses kapan saja dan di mana
+            saja.
+          </p>
 
-      {/* Image Section */}
-      <section className={styles.imageSection}>
-        <div className={styles.imageContainer}>
-          {/* Replace <img> with <Image> */}
-          <Image
-            src="/images/team.jpg" // Path to the image
-            alt="Our Team" // Alt text for the image
-            className={styles.image}
-            width={800} // Set the width for the image
-            height={500} // Set the height for the image
-            layout="responsive" // Ensures the image is responsive
-          />
+          <p>
+            Aplikasi ini bertujuan untuk mempermudah proses belajar dengan
+            menyediakan alat bantu yang intuitif dan memotivasi pengguna untuk
+            belajar lebih baik. Kami percaya bahwa teknologi dapat membantu
+            menciptakan pengalaman belajar yang lebih menarik dan bermanfaat.
+          </p>
         </div>
       </section>
 
-      {/* Info Section */}
-      <section className={styles.infoSection}>
-        <h2>What We Do</h2>
-        <p>
-          We aim to revolutionize learning by providing an interactive platform
-          that helps you improve your skills in writing, reading, and more. Our
-          application is designed with you in mind, offering personalized
-          experiences to help you succeed.
+      {/* About Us Section */}
+      <section className={styles.aboutSection}>
+        <h1 className={styles.sectionTitle}>Harapan Kami</h1>
+        <p className={styles.description}>
+          Web ini dibuat untuk melestarikan dan mempromosikan Aksara Sunda,
+          salah satu warisan budaya yang kaya namun kini terancam punah. Dengan
+          pesatnya perkembangan teknologi dan bahasa global, aksara Sunda
+          semakin terlupakan, terutama di kalangan generasi muda. Melalui
+          platform ini, kami ingin memberikan akses yang mudah dan interaktif
+          bagi siapa saja untuk belajar, berlatih, dan menguasai Aksara Sunda.
+          Tujuan kami adalah mengedukasi dan memperkenalkan aksara Sunda kepada
+          masyarakat luas dengan cara yang menyenangkan, memanfaatkan teknologi
+          untuk mempermudah pembelajaran.
         </p>
       </section>
 
-      {/* Team Section */}
-      <section className={styles.teamSection}>
-        <h2>Meet Our Team</h2>
-        <div className={styles.teamMembers}>
-          <div className={styles.member}>
-            {/* Replace <img> with <Image> */}
-            <Image
-              src="/images/member1.jpg"
-              alt="Team Member 1"
-              width={120}
-              height={120}
-              className={styles.memberImage}
-            />
-            <h3>John Doe</h3>
-            <p>Founder & CEO</p>
-          </div>
-          <div className={styles.member}>
-            {/* Replace <img> with <Image> */}
-            <Image
-              src="/images/member2.jpg"
-              alt="Team Member 2"
-              width={120}
-              height={120}
-              className={styles.memberImage}
-            />
-            <h3>Jane Smith</h3>
-            <p>Lead Developer</p>
-          </div>
-          <div className={styles.member}>
-            {/* Replace <img> with <Image> */}
-            <Image
-              src="/images/member3.jpg"
-              alt="Team Member 3"
-              width={120}
-              height={120}
-              className={styles.memberImage}
-            />
-            <h3>Mike Johnson</h3>
-            <p>Marketing Manager</p>
-          </div>
+      {/* Contact Us Section */}
+      <section className={styles.contactSection}>
+        <h2>Kontak kami</h2>
+        <p>
+          Jika Anda memiliki pertanyaan atau masukan, jangan ragu untuk
+          menghubungi kami:
+        </p>
+        <div className={styles.contactInfo}>
+          <p>
+            <span className={styles.emailIcon}></span> Email:{" "}
+            <a href="mailto:athallaarli@gmail.com">athallaarli@gmail.com</a>
+          </p>
+          <p>
+            <span className={styles.githubIcon}></span> Github:{" "}
+            <a href="https://github.com/athallaarl66">athallaarl66</a>
+          </p>
         </div>
       </section>
 
