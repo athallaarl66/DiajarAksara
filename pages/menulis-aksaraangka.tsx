@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import styles from "../styles/swaraNulis.module.css"; // Use CSS for styling
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";
+import Head from "next/head"; // Import Head from next/head
 
 // Updated aksaraSwaraData with 'character' and 'label' properties
 const aksaraSwaraData = [
@@ -128,7 +129,28 @@ const ColorWindow = () => {
 
   return (
     <main className={styles.main}>
+      <Head>
+        <title>Menulis Aksara Swara</title>
+
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1B1E9FSFPX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1B1E9FSFPX');
+            `,
+          }}
+        />
+      </Head>
+
       <Header />
+
       <section className={styles.tableSection}>
         <div className={styles.tableGrid}>
           <h2>Aksara Angka</h2>
@@ -165,7 +187,7 @@ const ColorWindow = () => {
         </div>
       </div>
 
-      {/* arrow button section */}
+      {/* Arrow button section */}
       <div className={styles.arrowButtons}>
         <button className={styles.arrowButton} onClick={handlePrevious}>
           ←

@@ -3,10 +3,30 @@ import styles from "../styles/latihan.module.css"; // CSS styling
 import Header from "../components/headerFitur"; // Import Header
 import Footer from "../components/footerFitur"; // Import Footer
 import Link from "next/link";
+import Head from "next/head"; // Impor Head dari next/head
 
 export default function LatihanPage() {
   return (
     <main className={styles.main}>
+      <Head>
+        <title>Latihan Aksara Sunda</title>
+
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1B1E9FSFPX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1B1E9FSFPX');
+            `,
+          }}
+        />
+      </Head>
       <Header /> {/* Header component */}
       {/* Latihan Section */}
       <section className={styles.section}>

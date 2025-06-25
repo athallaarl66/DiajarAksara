@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import styles from "../styles/swara.module.css"; // Gunakan CSS untuk styling
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";
+import Head from "next/head"; // Impor Head dari next/head
 
 const aksaraSwaraData = [
   {
@@ -49,6 +50,26 @@ const aksaraSwaraData = [
 export default function AksaraSwaraPage() {
   return (
     <main className={styles.main}>
+      <Head>
+        <title>Aksara Swara - Diajar Aksara</title>
+
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1B1E9FSFPX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1B1E9FSFPX');
+            `,
+          }}
+        />
+      </Head>
+
       <Header />
       <section className={styles.section}>
         <div className={styles.textSection}>

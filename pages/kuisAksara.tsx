@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Quiz.module.css";
+import Head from "next/head"; // Impor Head dari next/head
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -166,6 +167,26 @@ const Quiz = () => {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Diajar - Quiz</title>
+
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1B1E9FSFPX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1B1E9FSFPX');
+            `,
+          }}
+        />
+      </Head>
+
       <div className={styles.header}>
         <h1>Diajar - Quiz</h1>
       </div>

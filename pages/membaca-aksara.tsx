@@ -4,10 +4,32 @@ import Header from "../components/headerFitur"; // Import the Header component
 import Footer from "../components/footerFitur"; // Import the Footer component
 import styles from "../styles/MembacaAksara.module.css"; // CSS for this page
 import Link from "next/link";
+import Head from "next/head"; // Import Head from next/head
 
 const MembacaAksaraPage = () => {
   return (
     <div className={styles.pageContainer}>
+      {/* Google Analytics tag */}
+      <Head>
+        <title>Membaca Aksara Sunda</title>
+
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1B1E9FSFPX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1B1E9FSFPX');
+            `,
+          }}
+        />
+      </Head>
+
       {/* Reuse the Header component */}
       <Header />
 

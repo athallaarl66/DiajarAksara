@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Head from "next/head"; // Import the Head component from Next.js
 import Header from "../components/headerFitur"; // Import the Header component
 import Footer from "../components/footerFitur"; // Import the Footer component
 <link
@@ -17,6 +18,24 @@ const AboutUs = () => {
 
   return (
     <div className={`${styles.container} ${fadeIn ? styles.fadeIn : ""}`}>
+      {/* Google Analytics Tag */}
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1B1E9FSFPX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1B1E9FSFPX');
+          `,
+          }}
+        />
+      </Head>
+
       {/* Header Component */}
       <Header />
 

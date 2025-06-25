@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Head from "next/head"; // Import Head from next/head
 import "../styles/globals.css";
 import Header from "../components/headerFitur"; // Import the Header component
 import Footer from "../components/footerFitur"; // Import the Footer component
@@ -144,6 +145,23 @@ const ColorWindow = () => {
 
   return (
     <div>
+      {/* Google Analytics script */}
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1B1E9FSFPX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1B1E9FSFPX');
+            `,
+          }}
+        />
+      </Head>
       {/* Header Section outside container */}
       <Header /> {/* Include the Header component */}
       <div className={styles.container}>

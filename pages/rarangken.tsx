@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import Head from "next/head"; // Import the Head component from Next.js
 import styles from "../styles/rarangken.module.css";
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";
@@ -126,6 +127,24 @@ const rarangkenData = [
 export default function RarangkenPage() {
   return (
     <main className={styles.main}>
+      {/* Google Analytics Tag */}
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1B1E9FSFPX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1B1E9FSFPX');
+          `,
+          }}
+        />
+      </Head>
+
       <Header />
       <section className={styles.section}>
         <div className={styles.textSection}>

@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";
 import styles from "../styles/latihanRarangken.module.css";
+import Head from "next/head"; // Impor Head dari next/head
 
 const aksaraData = [
   {
@@ -192,6 +193,26 @@ const ColorWindow = () => {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Latihan Rarangken</title>
+
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1B1E9FSFPX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1B1E9FSFPX');
+            `,
+          }}
+        />
+      </Head>
+
       <Header />
       <section className={styles.tableSection}>
         <h3 className={styles.title}>Aksara Ngalagena Characters</h3>
