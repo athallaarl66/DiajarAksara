@@ -64,40 +64,28 @@ const MembacaAksaraPage = () => {
             <div className={styles.icon1}></div>
           </Link>
           <h3>Aksara ngalegna</h3>
-          <p>
-            Practice sheets are customized based on a child’s learning
-            progress...
-          </p>
+          <p>Berlatih menulis aksara ngalagena dengan menggunakan fitur ini</p>
         </div>
         <div className={styles.infoItem}>
           <Link href="/latihan-rarangken">
             <div className={styles.icon2}></div>
           </Link>
           <h3>Rarangkén</h3>
-          <p>
-            Practice sheets are customized based on a child’s learning
-            progress...
-          </p>
+          <p>Berlatih menulis aksara rarangken dengan menggunakan fitur ini</p>
         </div>
         <div className={styles.infoItem}>
           <Link href="/menulis-aksaraSwara">
             <div className={styles.icon3}></div>
           </Link>
           <h3>Aksara Swara</h3>
-          <p>
-            Practice sheets are customized based on a child’s learning
-            progress...
-          </p>
+          <p>Berlatih menulis aksara swara dengan menggunakan fitur ini</p>
         </div>
         <div className={styles.infoItem}>
           <Link href="/menulis-aksaraangka">
             <div className={styles.icon4}></div>
           </Link>
           <h3>Angka</h3>
-          <p>
-            Practice sheets are customized based on a child’s learning
-            progress...
-          </p>
+          <p>Berlatih menulis aksara angka dengan menggunakan fitur ini</p>
         </div>
       </section>
 
