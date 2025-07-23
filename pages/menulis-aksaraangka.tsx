@@ -58,8 +58,8 @@ const ColorWindow = () => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
   const [penColor, setPenColor] = useState("#000000");
-  const [selectedCharacter, setSelectedCharacter] = useState("");
-  const [selectedLabel, setSelectedLabel] = useState("");
+  const [selectedCharacter, setSelectedCharacter] = useState("᮱");
+  const [selectedLabel, setSelectedLabel] = useState("Angka 1");
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   // Handle the character change when arrows are clicked
