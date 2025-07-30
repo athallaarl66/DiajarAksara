@@ -18,6 +18,11 @@ const aksaraSwaraData = [
     description: "Aksara untuk angka 1 dalam aksara Sunda.",
   },
   {
+    character: "᮲",
+    label: "Angka 2",
+    description: "Aksara untuk angka 2 dalam aksara Sunda.",
+  },
+  {
     character: "᮳",
     label: "Angka 3",
     description: "Aksara untuk angka 3 dalam aksara Sunda.",

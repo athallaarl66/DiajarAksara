@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Head from "next/head"; // Import Head from next/head
 import "../styles/globals.css";
 import Header from "../components/headerFitur"; // Import the Header component
@@ -64,6 +64,7 @@ const ColorWindow = () => {
 
   // Drawing functions
   const startDrawing = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault(); // Prevent scroll when starting to draw
     const { offsetX, offsetY } = e.nativeEvent as MouseEvent;
     setIsDrawing(true);
     setLastPosition({ x: offsetX, y: offsetY });
@@ -82,7 +83,7 @@ const ColorWindow = () => {
       context.beginPath();
       context.moveTo(lastPosition.x, lastPosition.y);
       context.lineTo(offsetX, offsetY);
-      context.strokeStyle = penColor; // Use penColor for drawing
+      context.strokeStyle = penColor;
       context.lineWidth = 5;
       context.lineJoin = "round";
       context.lineCap = "round";
@@ -105,7 +106,7 @@ const ColorWindow = () => {
 
   // Reset color to black when selecting a color for drawing
   const handleColorChange = (color: string) => {
-    setPenColor(color); // Set pen color for drawing, aksara color will stay black
+    setPenColor(color);
   };
 
   // Handle touch events to ensure mobile compatibility
@@ -121,7 +122,7 @@ const ColorWindow = () => {
       context.beginPath();
       context.moveTo(lastPosition.x, lastPosition.y);
       context.lineTo(offsetX, offsetY);
-      context.strokeStyle = penColor; // Use penColor for drawing
+      context.strokeStyle = penColor;
       context.lineWidth = 5;
       context.lineJoin = "round";
       context.lineCap = "round";
@@ -131,6 +132,7 @@ const ColorWindow = () => {
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault(); // Prevent scroll when starting to draw
     const touch = e.touches[0];
     const canvasRect = canvasRef.current?.getBoundingClientRect();
     const offsetX = touch.clientX - (canvasRect?.left || 0);
@@ -142,6 +144,29 @@ const ColorWindow = () => {
   const handleTouchEnd = () => {
     setIsDrawing(false);
   };
+
+  // Prevent scrolling when touching canvas
+  const handleTouchStartOnCanvas = (e: React.TouchEvent) => {
+    e.preventDefault(); // Prevent scrolling when touching the canvas
+  };
+
+  useEffect(() => {
+    // Disable scroll when drawing
+    document.body.style.overflow = "hidden";
+
+    // Re-enable scroll when clicking outside of the canvas
+    const handleClickOutside = (e: MouseEvent) => {
+      if (canvasRef.current && !canvasRef.current.contains(e.target as Node)) {
+        document.body.style.overflow = "auto"; // Allow scrolling again
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div>
@@ -212,7 +237,7 @@ const ColorWindow = () => {
           </div>
         </div>
 
-        {/* Arrows to Change Character */}
+        {/* panah */}
         <div className={styles.arrowButtons}>
           <button className={styles.arrowButton} onClick={handlePrevious}>
             ←
@@ -222,7 +247,7 @@ const ColorWindow = () => {
           </button>
         </div>
 
-        {/* Color Picker (Pen Color) */}
+        {/* buat ganti warna */}
         <div className={styles.kotak}>
           <div className={styles.circles}>
             <div
