@@ -1,12 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "../styles/globals.css";
 import styles from "../styles/swaraNulis.module.css"; // Use CSS for styling
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";
 import Head from "next/head"; // Import Head from next/head
 
-// Updated aksaraSwaraData with 'character' and 'label' properties
-const aksaraSwaraData = [
+// Updated aksaraAngkaData with 'character' and 'label' properties
+const aksaraAngkaData = [
   {
     character: "᮰",
     label: "Angka 0",
@@ -67,65 +67,118 @@ const ColorWindow = () => {
   const [selectedLabel, setSelectedLabel] = useState("Angka 1");
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Handle the character change when arrows are clicked
+  // Navigation handlers
   const handlePrevious = () => {
-    const currentIndex = aksaraSwaraData.findIndex(
+    const currentIndex = aksaraAngkaData.findIndex(
       (item) => item.character === selectedCharacter
     );
     const previousIndex =
-      currentIndex === 0 ? aksaraSwaraData.length - 1 : currentIndex - 1;
-    setSelectedCharacter(aksaraSwaraData[previousIndex].character);
-    setSelectedLabel(aksaraSwaraData[previousIndex].label);
+      currentIndex === 0 ? aksaraAngkaData.length - 1 : currentIndex - 1;
+    setSelectedCharacter(aksaraAngkaData[previousIndex].character);
+    setSelectedLabel(aksaraAngkaData[previousIndex].label);
   };
 
   const handleNext = () => {
-    const currentIndex = aksaraSwaraData.findIndex(
+    const currentIndex = aksaraAngkaData.findIndex(
       (item) => item.character === selectedCharacter
     );
     const nextIndex =
-      currentIndex === aksaraSwaraData.length - 1 ? 0 : currentIndex + 1;
-    setSelectedCharacter(aksaraSwaraData[nextIndex].character);
-    setSelectedLabel(aksaraSwaraData[nextIndex].label);
+      currentIndex === aksaraAngkaData.length - 1 ? 0 : currentIndex + 1;
+    setSelectedCharacter(aksaraAngkaData[nextIndex].character);
+    setSelectedLabel(aksaraAngkaData[nextIndex].label);
   };
 
-  const startDrawing = (e: React.MouseEvent | React.TouchEvent) => {
-    const { offsetX, offsetY } = e.nativeEvent as MouseEvent;
+  // Mouse handlers
+  const startDrawingMouse = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    const { offsetX, offsetY } = e.nativeEvent;
     setIsDrawing(true);
     setLastPosition({ x: offsetX, y: offsetY });
   };
 
-  const stopDrawing = () => {
-    setIsDrawing(false);
-  };
-
-  const draw = (e: React.MouseEvent | React.TouchEvent) => {
+  const drawMouse = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (!isDrawing || !canvasRef.current) return;
-
-    const { offsetX, offsetY } = e.nativeEvent as MouseEvent;
-    const context = canvasRef.current.getContext("2d");
-    if (context) {
-      context.beginPath();
-      context.moveTo(lastPosition.x, lastPosition.y);
-      context.lineTo(offsetX, offsetY);
-      context.strokeStyle = penColor;
-      context.lineWidth = 5;
-      context.lineJoin = "round";
-      context.lineCap = "round";
-      context.stroke();
+    const { offsetX, offsetY } = e.nativeEvent;
+    const ctx = canvasRef.current.getContext("2d");
+    if (ctx) {
+      ctx.beginPath();
+      ctx.moveTo(lastPosition.x, lastPosition.y);
+      ctx.lineTo(offsetX, offsetY);
+      ctx.strokeStyle = penColor;
+      ctx.lineWidth = 5;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.stroke();
     }
     setLastPosition({ x: offsetX, y: offsetY });
   };
 
-  const clearCanvas = () => {
-    const context = canvasRef.current?.getContext("2d");
-    if (context) {
-      context.clearRect(
-        0,
-        0,
-        canvasRef.current!.width,
-        canvasRef.current!.height
-      );
+  const stopDrawingMouse = () => {
+    setIsDrawing(false);
+  };
+
+  // Touch handlers
+  const startDrawingTouch = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    if (!canvasRef.current) return;
+    const touch = e.touches[0];
+    const rect = canvasRef.current.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+    setIsDrawing(true);
+    setLastPosition({ x, y });
+  };
+
+  const drawTouch = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    if (!isDrawing || !canvasRef.current) return;
+    const touch = e.touches[0];
+    const rect = canvasRef.current.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+    const ctx = canvasRef.current.getContext("2d");
+    if (ctx) {
+      ctx.beginPath();
+      ctx.moveTo(lastPosition.x, lastPosition.y);
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = penColor;
+      ctx.lineWidth = 5;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.stroke();
     }
+    setLastPosition({ x, y });
+  };
+
+  const stopDrawingTouch = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    setIsDrawing(false);
+  };
+
+  // Prevent scrolling while drawing on mobile by adding passive:false listeners
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const preventScroll = (e: TouchEvent) => {
+      if (isDrawing) e.preventDefault();
+    };
+
+    canvas.addEventListener("touchmove", preventScroll, { passive: false });
+    canvas.addEventListener("touchstart", preventScroll, { passive: false });
+
+    return () => {
+      canvas.removeEventListener("touchmove", preventScroll);
+      canvas.removeEventListener("touchstart", preventScroll);
+    };
+  }, [isDrawing]);
+
+  const clearCanvas = () => {
+    const ctx = canvasRef.current?.getContext("2d");
+    if (ctx && canvasRef.current) {
+      ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    }
+    setIsDrawing(false);
   };
 
   const handleColorChange = (color: string) => {
@@ -177,7 +230,7 @@ const ColorWindow = () => {
         </div>
 
         <div className={styles.gridContainer}>
-          {aksaraSwaraData.map((item, index) => (
+          {aksaraAngkaData.map((item, index) => (
             <div className={styles.gridItem} key={index}>
               <div className={styles.symbol}>{item.character}</div>
               <div className={styles.symbolLabel}>{item.label}</div>
@@ -250,13 +303,13 @@ const ColorWindow = () => {
           className={styles.contentText}
           width={600}
           height={400}
-          onMouseDown={startDrawing}
-          onMouseUp={stopDrawing}
-          onMouseMove={draw}
-          onMouseLeave={stopDrawing}
-          onTouchStart={startDrawing}
-          onTouchEnd={stopDrawing}
-          onTouchMove={draw}
+          onMouseDown={startDrawingMouse}
+          onMouseUp={stopDrawingMouse}
+          onMouseMove={drawMouse}
+          onMouseLeave={stopDrawingMouse}
+          onTouchStart={startDrawingTouch}
+          onTouchMove={drawTouch}
+          onTouchEnd={stopDrawingTouch}
         />
       </div>
 

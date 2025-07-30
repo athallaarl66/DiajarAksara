@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import Header from "../components/headerFitur";
 import Footer from "../components/footerFitur";
 import styles from "../styles/latihanRarangken.module.css";
-import Head from "next/head"; // Impor Head dari next/head
+import Head from "next/head";
 
 const aksaraData = [
   {
@@ -78,26 +78,13 @@ const ColorWindow = () => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
   const [penColor, setPenColor] = useState("#000000");
-  const [selectedLabel, setSelectedLabel] = useState("Panéléng");
-  const [canvasSize, setCanvasSize] = useState({ width: 600, height: 400 }); // Initial canvas size
+  const [selectedLabel, setSelectedLabel] = useState(aksaraData[0].label);
+  const [selectedImageClass, setSelectedImageClass] = useState(
+    aksaraData[0].imageClass
+  );
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  useEffect(() => {
-    // Adjust canvas size when the window size changes (responsiveness)
-    const handleResize = () => {
-      const width = window.innerWidth * 0.9; // 90% of the screen width
-      const height = width * (400 / 600); // Maintain aspect ratio
-      setCanvasSize({ width, height });
-    };
-
-    handleResize(); // Call the function to set the initial size
-    window.addEventListener("resize", handleResize); // Listen to window resize event
-
-    return () => {
-      window.removeEventListener("resize", handleResize); // Cleanup listener
-    };
-  }, []);
-
+  // Navigation handlers based on selectedLabel
   const handlePrevious = () => {
     const currentIndex = aksaraData.findIndex(
       (item) => item.label === selectedLabel
@@ -105,6 +92,7 @@ const ColorWindow = () => {
     const previousIndex =
       currentIndex === 0 ? aksaraData.length - 1 : currentIndex - 1;
     setSelectedLabel(aksaraData[previousIndex].label);
+    setSelectedImageClass(aksaraData[previousIndex].imageClass);
   };
 
   const handleNext = () => {
@@ -114,81 +102,104 @@ const ColorWindow = () => {
     const nextIndex =
       currentIndex === aksaraData.length - 1 ? 0 : currentIndex + 1;
     setSelectedLabel(aksaraData[nextIndex].label);
+    setSelectedImageClass(aksaraData[nextIndex].imageClass);
   };
 
-  // Drawing functions
-  const startDrawing = (e: React.MouseEvent | React.TouchEvent) => {
-    const { offsetX, offsetY } = e.nativeEvent as MouseEvent;
+  // Mouse handlers
+  const startDrawingMouse = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    const { offsetX, offsetY } = e.nativeEvent;
     setIsDrawing(true);
     setLastPosition({ x: offsetX, y: offsetY });
   };
 
-  const stopDrawing = () => {
-    setIsDrawing(false);
-  };
-
-  const draw = (e: React.MouseEvent | React.TouchEvent) => {
+  const drawMouse = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (!isDrawing || !canvasRef.current) return;
-
-    const { offsetX, offsetY } = e.nativeEvent as MouseEvent;
-    const context = canvasRef.current.getContext("2d");
-    if (context) {
-      context.beginPath();
-      context.moveTo(lastPosition.x, lastPosition.y);
-      context.lineTo(offsetX, offsetY);
-      context.strokeStyle = penColor;
-      context.lineWidth = 5;
-      context.lineJoin = "round";
-      context.lineCap = "round";
-      context.stroke();
+    const { offsetX, offsetY } = e.nativeEvent;
+    const ctx = canvasRef.current.getContext("2d");
+    if (ctx) {
+      ctx.beginPath();
+      ctx.moveTo(lastPosition.x, lastPosition.y);
+      ctx.lineTo(offsetX, offsetY);
+      ctx.strokeStyle = penColor;
+      ctx.lineWidth = 5;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.stroke();
     }
     setLastPosition({ x: offsetX, y: offsetY });
   };
 
-  const clearCanvas = () => {
-    const context = canvasRef.current?.getContext("2d");
-    if (context) {
-      context.clearRect(0, 0, canvasSize.width, canvasSize.height);
+  const stopDrawingMouse = () => {
+    setIsDrawing(false);
+  };
+
+  // Touch handlers
+  const startDrawingTouch = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    if (!canvasRef.current) return;
+    const touch = e.touches[0];
+    const rect = canvasRef.current.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+    setIsDrawing(true);
+    setLastPosition({ x, y });
+  };
+
+  const drawTouch = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    if (!isDrawing || !canvasRef.current) return;
+    const touch = e.touches[0];
+    const rect = canvasRef.current.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+    const ctx = canvasRef.current.getContext("2d");
+    if (ctx) {
+      ctx.beginPath();
+      ctx.moveTo(lastPosition.x, lastPosition.y);
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = penColor;
+      ctx.lineWidth = 5;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.stroke();
     }
+    setLastPosition({ x, y });
+  };
+
+  const stopDrawingTouch = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    setIsDrawing(false);
+  };
+
+  // Prevent scrolling while drawing on mobile by adding passive:false listeners
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const preventScroll = (e: TouchEvent) => {
+      if (isDrawing) e.preventDefault();
+    };
+
+    canvas.addEventListener("touchmove", preventScroll, { passive: false });
+    canvas.addEventListener("touchstart", preventScroll, { passive: false });
+
+    return () => {
+      canvas.removeEventListener("touchmove", preventScroll);
+      canvas.removeEventListener("touchstart", preventScroll);
+    };
+  }, [isDrawing]);
+
+  const clearCanvas = () => {
+    const ctx = canvasRef.current?.getContext("2d");
+    if (ctx && canvasRef.current) {
+      ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    }
+    setIsDrawing(false);
   };
 
   const handleColorChange = (color: string) => {
     setPenColor(color);
-  };
-
-  // Handle touch events to ensure mobile compatibility
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDrawing || !canvasRef.current) return;
-    const touch = e.touches[0];
-    const canvasRect = canvasRef.current.getBoundingClientRect();
-    const offsetX = touch.clientX - canvasRect.left;
-    const offsetY = touch.clientY - canvasRect.top;
-
-    const context = canvasRef.current.getContext("2d");
-    if (context) {
-      context.beginPath();
-      context.moveTo(lastPosition.x, lastPosition.y);
-      context.lineTo(offsetX, offsetY);
-      context.strokeStyle = penColor;
-      context.lineWidth = 5;
-      context.lineJoin = "round";
-      context.lineCap = "round";
-      context.stroke();
-    }
-    setLastPosition({ x: offsetX, y: offsetY });
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    const touch = e.touches[0];
-    const canvasRect = canvasRef.current?.getBoundingClientRect();
-    const offsetX = touch.clientX - (canvasRect?.left || 0);
-    const offsetY = touch.clientY - (canvasRect?.top || 0);
-    setIsDrawing(true);
-    setLastPosition({ x: offsetX, y: offsetY });
-  };
-
-  const handleTouchEnd = () => {
-    setIsDrawing(false);
   };
 
   return (
@@ -234,6 +245,7 @@ const ColorWindow = () => {
               className={styles.card}
               onClick={() => {
                 setSelectedLabel(item.label);
+                setSelectedImageClass(item.imageClass);
               }}
             >
               <div
@@ -250,9 +262,7 @@ const ColorWindow = () => {
           <h4>Contoh Aksara Ngalagena</h4>
           <div className={styles.displayCharacter} style={{ color: "#000000" }}>
             <div
-              className={`${styles.symbolcontoh} ${
-                styles[selectedLabel.toLowerCase().replace(/\s+/g, "")]
-              }`}
+              className={`${styles.symbolcontoh} ${styles[selectedImageClass]}`}
             ></div>
           </div>
           <div className={styles.displayLabel} style={{ color: "#000000" }}>
@@ -300,15 +310,15 @@ const ColorWindow = () => {
         <canvas
           ref={canvasRef}
           className={styles.contentText}
-          width={canvasSize.width}
-          height={canvasSize.height}
-          onMouseDown={startDrawing}
-          onMouseUp={stopDrawing}
-          onMouseMove={draw}
-          onMouseLeave={stopDrawing}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          onTouchMove={handleTouchMove}
+          width={600}
+          height={400}
+          onMouseDown={startDrawingMouse}
+          onMouseUp={stopDrawingMouse}
+          onMouseMove={drawMouse}
+          onMouseLeave={stopDrawingMouse}
+          onTouchStart={startDrawingTouch}
+          onTouchMove={drawTouch}
+          onTouchEnd={stopDrawingTouch}
         />
       </div>
       <div className={styles.clearButton}>

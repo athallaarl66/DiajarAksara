@@ -1,19 +1,18 @@
 import React, { useRef, useState, useEffect } from "react";
-import Head from "next/head"; // Import Head from next/head
+import Head from "next/head";
 import "../styles/globals.css";
-import Header from "../components/headerFitur"; // Import the Header component
-import Footer from "../components/footerFitur"; // Import the Footer component
-import styles from "../styles/latihanNulis.module.css"; // CSS module for styling
+import Header from "../components/headerFitur";
+import Footer from "../components/footerFitur";
+import styles from "../styles/latihanNulis.module.css";
 
 const ColorWindow = () => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
-  const [penColor, setPenColor] = useState("#000000"); // This will control the drawing color
-  const [selectedCharacter, setSelectedCharacter] = useState("ᮊ"); // Default character to display
-  const [selectedLabel, setSelectedLabel] = useState("Ka"); // Default label to display
+  const [penColor, setPenColor] = useState("#000000");
+  const [selectedCharacter, setSelectedCharacter] = useState("ᮊ");
+  const [selectedLabel, setSelectedLabel] = useState("Ka");
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // List of aksara characters
   const aksaraGrid = [
     { label: "Ka", character: "ᮊ" },
     { label: "Ga", character: "ᮌ" },
@@ -41,7 +40,6 @@ const ColorWindow = () => {
     { label: "Tra", character: "ᮒᮛ" },
   ];
 
-  // Handle the character change when arrows are clicked
   const handlePrevious = () => {
     const currentIndex = aksaraGrid.findIndex(
       (item) => item.character === selectedCharacter
@@ -62,10 +60,10 @@ const ColorWindow = () => {
     setSelectedLabel(aksaraGrid[nextIndex].label);
   };
 
-  // Drawing functions
-  const startDrawing = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault(); // Prevent scroll when starting to draw
-    const { offsetX, offsetY } = e.nativeEvent as MouseEvent;
+  // Mouse drawing handlers
+  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    const { offsetX, offsetY } = e.nativeEvent;
     setIsDrawing(true);
     setLastPosition({ x: offsetX, y: offsetY });
   };
@@ -74,10 +72,10 @@ const ColorWindow = () => {
     setIsDrawing(false);
   };
 
-  const draw = (e: React.MouseEvent | React.TouchEvent) => {
+  const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (!isDrawing || !canvasRef.current) return;
 
-    const { offsetX, offsetY } = e.nativeEvent as MouseEvent;
+    const { offsetX, offsetY } = e.nativeEvent;
     const context = canvasRef.current.getContext("2d");
     if (context) {
       context.beginPath();
@@ -92,26 +90,22 @@ const ColorWindow = () => {
     setLastPosition({ x: offsetX, y: offsetY });
   };
 
-  const clearCanvas = () => {
-    const context = canvasRef.current?.getContext("2d");
-    if (context) {
-      context.clearRect(
-        0,
-        0,
-        canvasRef.current!.width,
-        canvasRef.current!.height
-      );
-    }
+  // Touch drawing handlers
+  const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const canvasRect = canvasRef.current?.getBoundingClientRect();
+    if (!canvasRect) return;
+    const offsetX = touch.clientX - canvasRect.left;
+    const offsetY = touch.clientY - canvasRect.top;
+    setIsDrawing(true);
+    setLastPosition({ x: offsetX, y: offsetY });
   };
 
-  // Reset color to black when selecting a color for drawing
-  const handleColorChange = (color: string) => {
-    setPenColor(color);
-  };
-
-  // Handle touch events to ensure mobile compatibility
-  const handleTouchMove = (e: React.TouchEvent) => {
+  const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     if (!isDrawing || !canvasRef.current) return;
+
     const touch = e.touches[0];
     const canvasRect = canvasRef.current.getBoundingClientRect();
     const offsetX = touch.clientX - canvasRect.left;
@@ -131,46 +125,57 @@ const ColorWindow = () => {
     setLastPosition({ x: offsetX, y: offsetY });
   };
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    e.preventDefault(); // Prevent scroll when starting to draw
-    const touch = e.touches[0];
-    const canvasRect = canvasRef.current?.getBoundingClientRect();
-    const offsetX = touch.clientX - (canvasRect?.left || 0);
-    const offsetY = touch.clientY - (canvasRect?.top || 0);
-    setIsDrawing(true);
-    setLastPosition({ x: offsetX, y: offsetY });
-  };
-
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     setIsDrawing(false);
   };
 
-  // Prevent scrolling when touching canvas
-  const handleTouchStartOnCanvas = (e: React.TouchEvent) => {
-    e.preventDefault(); // Prevent scrolling when touching the canvas
+  const clearCanvas = () => {
+    const context = canvasRef.current?.getContext("2d");
+    if (context && canvasRef.current) {
+      context.clearRect(
+        0,
+        0,
+        canvasRef.current.width,
+        canvasRef.current.height
+      );
+    }
   };
 
-  useEffect(() => {
-    // Disable scroll when drawing
-    document.body.style.overflow = "hidden";
+  const handleColorChange = (color: string) => {
+    setPenColor(color);
+  };
 
-    // Re-enable scroll when clicking outside of the canvas
-    const handleClickOutside = (e: MouseEvent) => {
-      if (canvasRef.current && !canvasRef.current.contains(e.target as Node)) {
-        document.body.style.overflow = "auto"; // Allow scrolling again
+  // Tambahkan useEffect untuk menambahkan event listener touch dengan passive: false
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    // Handler manual untuk touchmove dengan preventDefault saat menggambar
+    const touchMoveHandler = (e: TouchEvent) => {
+      if (isDrawing) {
+        e.preventDefault();
+      }
+    };
+    // Handler manual untuk touchstart dengan preventDefault saat menggambar
+    const touchStartHandler = (e: TouchEvent) => {
+      if (isDrawing) {
+        e.preventDefault();
       }
     };
 
-    document.addEventListener("click", handleClickOutside);
-
+    // Pasang event listener dengan passive: false agar preventDefault bisa bekerja
+    canvas.addEventListener("touchmove", touchMoveHandler, { passive: false });
+    canvas.addEventListener("touchstart", touchStartHandler, {
+      passive: false,
+    });
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      canvas.removeEventListener("touchmove", touchMoveHandler);
+      canvas.removeEventListener("touchstart", touchStartHandler);
     };
-  }, []);
+  }, [isDrawing]);
 
   return (
     <div>
-      {/* Maze Script for testing */}
       <Head>
         <script
           dangerouslySetInnerHTML={{
@@ -198,10 +203,8 @@ const ColorWindow = () => {
           }}
         />
       </Head>
-      {/* Header Section outside container */}
-      <Header /> {/* Include the Header component */}
+      <Header />
       <div className={styles.container}>
-        {/* Aksara Ngalagena Section */}
         <section className={styles.tableSection}>
           <h3>Aksara Ngalagena </h3>
           <div className={styles.tableGrid}>
@@ -221,13 +224,12 @@ const ColorWindow = () => {
           </div>
         </section>
 
-        {/* Digital Board Section */}
         <div className={styles.digitBoard}>
           <div className={styles.digitBoardContent}>
             <h4>Contoh Aksara Ngalagena</h4>
             <div
               className={styles.displayCharacter}
-              style={{ color: "#000000" }} // Always set character color to black
+              style={{ color: "#000000" }}
             >
               {selectedCharacter}
             </div>
@@ -237,7 +239,6 @@ const ColorWindow = () => {
           </div>
         </div>
 
-        {/* panah */}
         <div className={styles.arrowButtons}>
           <button className={styles.arrowButton} onClick={handlePrevious}>
             ←
@@ -247,7 +248,6 @@ const ColorWindow = () => {
           </button>
         </div>
 
-        {/* buat ganti warna */}
         <div className={styles.kotak}>
           <div className={styles.circles}>
             <div
@@ -277,7 +277,6 @@ const ColorWindow = () => {
           </div>
         </div>
 
-        {/* Canvas Area */}
         <div className={styles.contentBox}>
           <canvas
             ref={canvasRef}
@@ -289,18 +288,16 @@ const ColorWindow = () => {
             onMouseMove={draw}
             onMouseLeave={stopDrawing}
             onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
             onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           />
         </div>
 
-        {/* Clear Canvas Button */}
         <div className={styles.clearButton}>
           <button onClick={clearCanvas}>Clear</button>
         </div>
       </div>
-      {/* Footer Section outside container */}
-      <Footer /> {/* Include the Footer component */}
+      <Footer />
     </div>
   );
 };
