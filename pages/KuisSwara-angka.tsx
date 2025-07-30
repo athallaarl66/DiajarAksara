@@ -56,8 +56,8 @@ const Quiz = () => {
     {
       question:
         "Question 8: Apa nama aksara Sunda yang digunakan untuk menuliskan suara 'pa'?",
-      options: ["ꦥ", "ꦝ", "ꦣ", "ꦩ"],
-      correctAnswer: "ꦥ",
+      options: ["ᮕᮤ", "᮱᮰", "᮳", "ᮕ"],
+      correctAnswer: "ᮕ",
     },
     {
       question:
