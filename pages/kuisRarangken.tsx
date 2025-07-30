@@ -300,7 +300,7 @@ const Quiz = () => {
       )}
 
       <footer className={styles.footer}>
-        <p>Copyright © MyCourse.io 2024, All Rights Reserved</p>
+        <p>© 2025 Diajar Aksara. All rights reserved</p>
       </footer>
     </div>
   );
