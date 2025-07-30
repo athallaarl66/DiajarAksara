@@ -9,7 +9,7 @@ const MainSections = () => (
       <div className={styles.textSection}>
         <h2>Aksara Sunda</h2>
         <p>
-          Aksara Sunda adalah sistem penulisaf tradisional yang digunakan untuk
+          Aksara Sunda adalah sistem penulisan tradisional yang digunakan untuk
           menulis bahasa Sunda. Aksara ini berkembang dari aksara Brahmi India
           dan digunakan pada masa Kerajaan Sunda (abad ke-14 hingga ke-16).
           Setelah lama tergantikan oleh aksara Arab dan Latin, aksara Sunda

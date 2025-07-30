@@ -1,6 +1,6 @@
 /* General Layout and Body */
 .container {
-  font-family: "Montserrat", sans-serif;
+  font-family: "montserrat", sans-serif;
   background-color: #ffffff;
   opacity: 0;
   transition: opacity 1s ease-in-out;

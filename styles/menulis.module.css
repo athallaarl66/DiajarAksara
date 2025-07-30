@@ -126,7 +126,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: "montserrat", sans-serif;
   background-color: white; /* White background */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */

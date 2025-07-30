@@ -42,7 +42,7 @@
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-family: "Montserrat", sans-serif;
+  font-family: "montserrat", sans-serif;
   transition: color 0.3s ease;
 }
 
@@ -99,7 +99,7 @@
   background-color: #1b1b1b;
   color: #fff;
   padding: 40px 20px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "montserrat", sans-serif;
 }
 
 .footerContent {
