@@ -185,7 +185,7 @@ const Quiz = () => {
 
       {!isStarted ? (
         <div className={styles.nameInputBox}>
-          <h2>Enter your name to start the quiz</h2>
+          <h2>Masukan Nama Anda</h2>
           <input
             type="text"
             value={userName}
