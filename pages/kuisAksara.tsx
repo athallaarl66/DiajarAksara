@@ -109,7 +109,7 @@ const Quiz = () => {
       localStorage.setItem("userName", userName);
       setIsStarted(true);
     } else {
-      alert("Please enter your name before starting the quiz.");
+      alert("Masukan nama .");
     }
   };
 
@@ -209,7 +209,7 @@ const Quiz = () => {
             type="text"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
-            placeholder="Enter your name"
+            placeholder="Masukan nama"
             className={styles.nameInput}
           />
           <button onClick={handleStartQuiz} className={styles.startButton}>
